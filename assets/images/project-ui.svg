@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Minh họa giao diện website 7 trang">
+  <rect width="800" height="500" rx="20" fill="#f3f1eb"/>
+  <rect x="44" y="38" width="712" height="424" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <rect x="44" y="38" width="712" height="46" rx="16" fill="#f8fafc"/>
+  <circle cx="74" cy="61" r="6" fill="#ef4444"/>
+  <circle cx="96" cy="61" r="6" fill="#f59e0b"/>
+  <circle cx="118" cy="61" r="6" fill="#10b981"/>
+  <rect x="220" y="51" width="360" height="20" rx="10" fill="#e5e7eb"/>
+  <!-- Nav strip -->
+  <rect x="76" y="102" width="110" height="16" rx="6" fill="#0f766e"/>
+  <rect x="470" y="104" width="60" height="12" rx="6" fill="#cbd5e1"/>
+  <rect x="544" y="104" width="70" height="12" rx="6" fill="#cbd5e1"/>
+  <rect x="628" y="104" width="60" height="12" rx="6" fill="#cbd5e1"/>
+  <!-- Hero mockup -->
+  <rect x="76" y="144" width="310" height="24" rx="6" fill="#111827"/>
+  <rect x="76" y="180" width="280" height="12" rx="6" fill="#9ca3af"/>
+  <rect x="76" y="200" width="240" height="12" rx="6" fill="#9ca3af"/>
+  <rect x="76" y="228" width="150" height="34" rx="8" fill="#0f766e"/>
+  <rect x="424" y="140" width="300" height="130" rx="12" fill="#ccfbf1"/>
+  <!-- 3 member cards row -->
+  <rect x="76" y="294" width="204" height="142" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="92" y="310" width="172" height="72" rx="8" fill="#0f766e" opacity="0.18"/>
+  <rect x="92" y="394" width="100" height="12" rx="5" fill="#111827"/>
+  <rect x="92" y="414" width="140" height="10" rx="5" fill="#9ca3af"/>
+
+  <rect x="298" y="294" width="204" height="142" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="314" y="310" width="172" height="72" rx="8" fill="#1d4ed8" opacity="0.16"/>
+  <rect x="314" y="394" width="100" height="12" rx="5" fill="#111827"/>
+  <rect x="314" y="414" width="140" height="10" rx="5" fill="#9ca3af"/>
+
+  <rect x="520" y="294" width="204" height="142" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="536" y="310" width="172" height="72" rx="8" fill="#b45309" opacity="0.16"/>
+  <rect x="536" y="394" width="100" height="12" rx="5" fill="#111827"/>
+  <rect x="536" y="414" width="140" height="10" rx="5" fill="#9ca3af"/>
+</svg>

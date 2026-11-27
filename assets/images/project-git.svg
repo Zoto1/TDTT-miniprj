@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Minh họa quy trình Git Branch, Pull Request và Revert">
+  <rect width="800" height="500" rx="20" fill="#0f172a"/>
+  <!-- Main branch -->
+  <line x1="80" y1="250" x2="720" y2="250" stroke="#0f766e" stroke-width="6"/>
+  <circle cx="110" cy="250" r="14" fill="#14b8a6" stroke="#0f172a" stroke-width="4"/>
+  <circle cx="340" cy="250" r="14" fill="#14b8a6" stroke="#0f172a" stroke-width="4"/>
+  <circle cx="520" cy="250" r="14" fill="#14b8a6" stroke="#0f172a" stroke-width="4"/>
+  <circle cx="690" cy="250" r="16" fill="#f59e0b" stroke="#0f172a" stroke-width="4"/>
+
+  <!-- Feature branch upper -->
+  <path d="M110 250 C160 150, 290 150, 340 250" fill="none" stroke="#38bdf8" stroke-width="4.5"/>
+  <circle cx="195" cy="172" r="11" fill="#38bdf8"/>
+  <circle cx="265" cy="172" r="11" fill="#38bdf8"/>
+
+  <!-- Feature branch lower -->
+  <path d="M220 250 C275 350, 455 350, 520 250" fill="none" stroke="#34d399" stroke-width="4.5"/>
+  <circle cx="315" cy="326" r="11" fill="#34d399"/>
+  <circle cx="425" cy="326" r="11" fill="#34d399"/>
+
+  <!-- Labels -->
+  <rect x="82" y="54" width="210" height="44" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="187" y="81" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="15" font-weight="700">feature/* &rarr; PR</text>
+
+  <rect x="315" y="54" width="200" height="44" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="415" y="81" text-anchor="middle" fill="#5eead4" font-family="monospace" font-size="15" font-weight="700">Merge Conflict</text>
+
+  <rect x="538" y="54" width="180" height="44" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="628" y="81" text-anchor="middle" fill="#fcd34d" font-family="monospace" font-size="15" font-weight="700">git revert</text>
+
+  <text x="110" y="294" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="13">main</text>
+  <text x="690" y="294" text-anchor="middle" fill="#fcd34d" font-family="monospace" font-size="13">v1.0.0</text>
+</svg>
