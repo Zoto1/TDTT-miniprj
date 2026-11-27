@@ -1135,26 +1135,33 @@ main.container .section-desc {
   }
 
   .site-header--hero .site-nav--centered {
-    padding: 14px 0;
+    padding: 12px 48px 12px 0;
+    justify-content: flex-start;
   }
 
   .theme-toggle {
-    position: static;
-    transform: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
   }
 
   .nav-links {
-    gap: 2px 14px;
+    justify-content: flex-start;
+    gap: 0 11px;
   }
 
   .nav-links a {
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    min-height: 38px;
+    font-size: 0.69rem;
+    letter-spacing: 0.06em;
   }
 
   .hero-cover {
     min-height: 460px;
-    padding: 118px 20px 64px;
+    padding: 108px 20px 64px;
   }
 
   .hero-lead {
