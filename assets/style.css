@@ -609,7 +609,7 @@ main.container {
 .project-gallery .shot-site {
   grid-row: span 2;
   min-height: 420px;
-  background-color: #f6f4ef;
+  background-color: #faf7f2;
 }
 
 .project-gallery .shot-site img {
@@ -617,8 +617,14 @@ main.container {
   object-position: center;
 }
 
-.shot-github {
+.project-gallery .shot-github {
   min-height: 220px;
+  background-color: #faf7f2;
+}
+
+.project-gallery .shot-github img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .shot-phone {
