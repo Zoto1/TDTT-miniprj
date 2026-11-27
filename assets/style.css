@@ -392,6 +392,11 @@ main.container {
   color: #a6adb8;
 }
 
+.band-ink code {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #f3f1ec;
+}
+
 .frame {
   position: relative;
   margin: 0;
