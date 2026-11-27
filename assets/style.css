@@ -296,7 +296,6 @@ main.container {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: grayscale(18%) contrast(1.04);
   z-index: 0;
 }
 
@@ -306,8 +305,8 @@ main.container {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(14, 17, 22, 0.6) 0%,
-    rgba(14, 17, 22, 0.48) 50%,
+    rgba(14, 17, 22, 0.58) 0%,
+    rgba(14, 17, 22, 0.56) 50%,
     rgba(14, 17, 22, 0.72) 100%
   );
   z-index: 1;
