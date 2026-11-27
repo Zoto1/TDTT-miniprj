@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khánh - Nhóm Tư Duy Tính Toán</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav site-nav--centered" aria-label="Điều hướng chính">
+        <ul class="nav-links">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li><a href="../index.html#ve-nhom">Về nhóm</a></li>
+          <li><a class="active" href="../index.html#thanh-vien">Thành viên</a></li>
+          <li><a href="../index.html#do-an">Đồ án</a></li>
+          <li><a href="../index.html#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="profile-hero">
+      <span class="badge">Thành viên nhóm &middot; Nhóm Tư duy tính toán</span>
+      <h1>Khánh</h1>
+      <p>
+        Xin chào, mình là Khánh. Trong dự án này mình phụ trách xây dựng và quản lý nội dung trang chủ
+        <code>index.html</code>, hệ thống điều hướng dùng chung cho toàn bộ 7 trang HTML, stylesheet
+        <code>assets/style.css</code> và trang giới thiệu cá nhân này.
+      </p>
+      <div class="profile-meta">
+        <span>GitHub: <a href="https://github.com/DrakyNeUwU" target="_blank" rel="noopener noreferrer">@DrakyNeUwU</a></span>
+        <span>Vai trò: Quản lý trang chủ &amp; điều hướng nhóm</span>
+        <span>Tệp phụ trách: <code>members/khanh.html</code></span>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Thông tin cá nhân">
+      <div class="profile-grid">
+        <article class="card">
+          <h2>Sở thích &amp; Lĩnh vực quan tâm</h2>
+          <p>Những mảng kỹ thuật mình thường tìm hiểu và thực hành:</p>
+          <ul class="tag-list">
+            <li class="tag">Phát triển web tĩnh &amp; UI gọn nhẹ</li>
+            <li class="tag">Quản lý mã nguồn Git &amp; GitHub</li>
+            <li class="tag">Tư duy thuật toán</li>
+            <li class="tag">Tự động hóa quy trình</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Kỹ năng hiện có</h2>
+          <p>Nền tảng công cụ đang sử dụng trong môn học và dự án nhóm:</p>
+          <ul class="tag-list">
+            <li class="tag">HTML5 Semantic</li>
+            <li class="tag">CSS3 Responsive</li>
+            <li class="tag">Git Branch &amp; Merge</li>
+            <li class="tag">Pull Request &amp; Review</li>
+            <li class="tag">Markdown Docs</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Mục tiêu học tập</h2>
+          <ul class="goal-list">
+            <li>Làm chủ quy trình cộng tác nhóm bằng Git &amp; GitHub (branching, code review, xử lý conflict và hoàn tác an toàn).</li>
+            <li>Tổ chức cấu trúc mã nguồn và tài liệu dự án mạch lạc, dễ đọc và dễ bảo trì cho cả nhóm.</li>
+            <li>Áp dụng thành thạo 4 trụ cột Tư duy tính toán vào phân tích và giải quyết bài toán kỹ thuật thực tế.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="computational-thinking">
+      <h2 class="section-title">Ví dụ áp dụng Tư duy tính toán</h2>
+      <p class="section-desc">
+        Cách mình áp dụng 4 trụ cột của Tư duy tính toán để tổ chức cấu trúc website và điều phối quy trình cộng tác cho nhóm 6 thành viên:
+      </p>
+      <div class="ct-grid">
+        <article class="ct-step">
+          <h3>1. Phân rã (Decomposition)</h3>
+          <p>
+            Chia website thành các phần độc lập: trang chủ điều hướng (<code>index.html</code>),
+            stylesheet dùng chung (<code>assets/style.css</code>) và 6 trang cá nhân riêng trong
+            <code>members/</code> để từng người làm việc song song mà không đè lên tệp của nhau.
+          </p>
+        </article>
+
+        <article class="ct-step">
+          <h3>2. Nhận diện mẫu (Pattern Recognition)</h3>
+          <p>
+            Nhận thấy cả 7 trang đều lặp lại cùng thanh điều hướng, hệ thống thẻ thông tin, bảng màu và chân trang;
+            từ đó gom toàn bộ quy tắc hiển thị vào một tệp <code>assets/style.css</code> thống nhất.
+          </p>
+        </article>
+
+        <article class="ct-step">
+          <h3>3. Trừu tượng hóa (Abstraction)</h3>
+          <p>
+            Giữ lại đúng những thông tin cốt lõi và đường dẫn tương đối gọn nhẹ (<code>../assets/style.css</code>,
+            <code>../index.html</code>), lược bỏ các thành phần kỹ thuật dư thừa như framework, backend hay cơ sở dữ liệu.
+          </p>
+        </article>
+
+        <article class="ct-step">
+          <h3>4. Thiết kế thuật toán (Algorithm Design)</h3>
+          <p>
+            Chuẩn hóa quy trình cập nhật mã nguồn thành chuỗi bước xác định: tạo nhánh riêng &rarr; chỉnh sửa
+            &rarr; commit rõ nghĩa &rarr; push &rarr; mở Pull Request &rarr; review chéo &rarr; merge vào
+            <code>main</code> (và dùng <code>git revert</code> khi phát hiện lỗi).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="back-nav">
+      <a class="btn btn-secondary" href="../index.html">&larr; Quay lại trang chủ</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <strong>Nhóm 1 &middot; Khánh (@DrakyNeUwU)</strong>
+        <p>Môn học: Tư duy tính toán</p>
+      </div>
+      <div class="footer-contact">
+        <a href="../index.html">Trang chủ</a>
+        <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+      </div>
+      <div class="footer-links">
+        <a href="khanh.html">Khánh</a>
+        <a href="thu-le.html">Thư Lê</a>
+        <a href="thu-anh.html">Thư Anh</a>
+        <a href="thien.html">Thiện</a>
+        <a href="sand.html">Sand</a>
+        <a href="zt.html">ZT</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
