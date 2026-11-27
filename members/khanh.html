@@ -76,6 +76,48 @@
       </div>
     </section>
 
+    <section class="section" id="computational-thinking">
+      <h2 class="section-title">Ví dụ áp dụng Tư duy tính toán</h2>
+      <p class="section-desc">
+        Cách mình áp dụng 4 trụ cột của Tư duy tính toán để tổ chức cấu trúc website và điều phối quy trình cộng tác cho nhóm 6 thành viên:
+      </p>
+      <div class="ct-grid">
+        <article class="ct-step">
+          <h3>1. Phân rã (Decomposition)</h3>
+          <p>
+            Chia website thành các phần độc lập: trang chủ điều hướng (<code>index.html</code>),
+            stylesheet dùng chung (<code>assets/style.css</code>) và 6 trang cá nhân riêng trong
+            <code>members/</code> để từng người làm việc song song mà không đè lên tệp của nhau.
+          </p>
+        </article>
+
+        <article class="ct-step">
+          <h3>2. Nhận diện mẫu (Pattern Recognition)</h3>
+          <p>
+            Nhận thấy cả 7 trang đều lặp lại cùng thanh điều hướng, hệ thống thẻ thông tin, bảng màu và chân trang;
+            từ đó gom toàn bộ quy tắc hiển thị vào một tệp <code>assets/style.css</code> thống nhất.
+          </p>
+        </article>
+
+        <article class="ct-step">
+          <h3>3. Trừu tượng hóa (Abstraction)</h3>
+          <p>
+            Giữ lại đúng những thông tin cốt lõi và đường dẫn tương đối gọn nhẹ (<code>../assets/style.css</code>,
+            <code>../index.html</code>), lược bỏ các thành phần kỹ thuật dư thừa như framework, backend hay cơ sở dữ liệu.
+          </p>
+        </article>
+
+        <article class="ct-step">
+          <h3>4. Thiết kế thuật toán (Algorithm Design)</h3>
+          <p>
+            Chuẩn hóa quy trình cập nhật mã nguồn thành chuỗi bước xác định: tạo nhánh riêng &rarr; chỉnh sửa
+            &rarr; commit rõ nghĩa &rarr; push &rarr; mở Pull Request &rarr; review chéo &rarr; merge vào
+            <code>main</code> (và dùng <code>git revert</code> khi phát hiện lỗi).
+          </p>
+        </article>
+      </div>
+    </section>
+
     <div class="back-nav">
       <a class="btn btn-secondary" href="../index.html">&larr; Quay lại trang chủ</a>
     </div>
