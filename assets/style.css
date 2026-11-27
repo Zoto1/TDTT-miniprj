@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
 }
 
 img {
@@ -841,8 +843,14 @@ main.container .section-desc {
 
   .about,
   .project-top {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 40px;
+  }
+
+  .about > *,
+  .project-top > *,
+  .project-gallery > * {
+    min-width: 0;
   }
 
   .about-photo {
@@ -854,7 +862,7 @@ main.container .section-desc {
   }
 
   .project-gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .shot-site {
