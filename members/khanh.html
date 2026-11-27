@@ -6,129 +6,151 @@
   <title>Huy Khánh - Nhóm 1</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body id="top" style="--member-accent: #1c4e48;">
   <header class="site-header">
     <div class="container">
       <nav class="site-nav site-nav--centered" aria-label="Điều hướng chính">
         <ul class="nav-links">
           <li><a href="../index.html">Trang chủ</a></li>
-          <li><a href="../index.html#ve-nhom">Về nhóm</a></li>
           <li><a class="active" href="../index.html#thanh-vien">Thành viên</a></li>
+          <li><a href="../index.html#ve-nhom">Về nhóm</a></li>
           <li><a href="../index.html#do-an">Đồ án</a></li>
-          <li><a href="../index.html#lien-he">Liên hệ</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="profile-hero">
-      <span class="badge">Thành viên nhóm &middot; Nhóm Tư duy tính toán</span>
-      <h1>Huy Khánh</h1>
-      <p>
-        Xin chào, mình là Huy Khánh. Trong dự án này mình phụ trách xây dựng và quản lý nội dung trang chủ
-        <code>index.html</code>, hệ thống điều hướng dùng chung cho toàn bộ 7 trang HTML, stylesheet
-        <code>assets/style.css</code> và trang giới thiệu cá nhân này.
-      </p>
-      <div class="profile-meta">
-        <span>GitHub: <a href="https://github.com/DrakyNeUwU" target="_blank" rel="noopener noreferrer">@DrakyNeUwU</a></span>
-        <span>Vai trò: Quản lý trang chủ &amp; điều hướng nhóm</span>
-        <span>Tệp phụ trách: <code>members/khanh.html</code></span>
+    <!-- 1. Ảnh & tên + câu châm ngôn -->
+    <section class="profile-banner">
+      <div class="profile-avatar">
+        <img src="../assets/images/members/khanh.jpg" alt="Huy Khánh">
+      </div>
+      <div class="profile-banner-body">
+        <span class="badge">Nhóm 1 &middot; Tư duy tính toán</span>
+        <h1>Huy Khánh</h1>
+        <p class="profile-role-line">Giao diện Frontend, Schema dữ liệu &amp; Trang chủ nhóm</p>
+        <p class="profile-motto">&ldquo;Làm cho rõ ràng trước, rồi làm cho nhanh.&rdquo;</p>
       </div>
     </section>
 
-    <section class="section" aria-label="Thông tin cá nhân">
+    <!-- 2. Giới thiệu bản thân & Sở thích / Kỹ năng -->
+    <section class="section" aria-label="Giới thiệu và kỹ năng">
       <div class="profile-grid">
         <article class="card">
-          <h2>Sở thích &amp; Lĩnh vực quan tâm</h2>
-          <p>Những mảng kỹ thuật mình thường tìm hiểu và thực hành:</p>
+          <h2>Giới thiệu bản thân</h2>
+          <p>
+            Mình là Huy Khánh, thành viên Nhóm 1 môn Tư duy tính toán. Mình thích những sản phẩm có bố cục thoáng,
+            cấu trúc mã nguồn gọn gàng và dễ để các bạn khác cùng đọc, cùng chỉnh sửa mà không bị rối.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Sở thích</h2>
+          <p>Những chủ đề mình hay tìm hiểu ngoài giờ học:</p>
           <ul class="tag-list">
-            <li class="tag">Phát triển web tĩnh &amp; UI gọn nhẹ</li>
-            <li class="tag">Quản lý mã nguồn Git &amp; GitHub</li>
+            <li class="tag">Thiết kế giao diện gọn nhẹ</li>
             <li class="tag">Tư duy thuật toán</li>
             <li class="tag">Tự động hóa quy trình</li>
           </ul>
         </article>
 
         <article class="card">
-          <h2>Kỹ năng hiện có</h2>
-          <p>Nền tảng công cụ đang sử dụng trong môn học và dự án nhóm:</p>
+          <h2>Kỹ năng</h2>
+          <p>Công cụ và nền tảng đang sử dụng trong đồ án:</p>
           <ul class="tag-list">
-            <li class="tag">HTML5 Semantic</li>
-            <li class="tag">CSS3 Responsive</li>
-            <li class="tag">Git Branch &amp; Merge</li>
-            <li class="tag">Pull Request &amp; Review</li>
-            <li class="tag">Markdown Docs</li>
+            <li class="tag">HTML5 &amp; CSS3</li>
+            <li class="tag">React + Vite</li>
+            <li class="tag">Pydantic &amp; JSON Schema</li>
+            <li class="tag">Git &amp; GitHub</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Đóng góp cho đồ án -->
+    <section class="section" id="dong-gop">
+      <h2 class="section-title">Đóng góp cho đồ án</h2>
+      <p class="section-desc">
+        Các phần việc mình trực tiếp phụ trách trong đồ án chung <strong>Travel Planning Virtual Assistant</strong> và website giới thiệu nhóm:
+      </p>
+
+      <div class="profile-grid">
+        <article class="card">
+          <h3>Đồ án Travel Planning Virtual Assistant</h3>
+          <ul class="goal-list">
+            <li>Phối hợp xây dựng giao diện React + Vite cho luồng nhập yêu cầu và hiển thị lịch trình.</li>
+            <li>Thiết kế schema dữ liệu (Pydantic &amp; JSON Schema) và xử lý chuẩn hóa đầu vào ở <code>input_service.py</code>.</li>
           </ul>
         </article>
 
         <article class="card">
-          <h2>Mục tiêu học tập</h2>
+          <h3>Website nhóm &amp; Quy trình Git</h3>
           <ul class="goal-list">
-            <li>Làm chủ quy trình cộng tác nhóm bằng Git &amp; GitHub (branching, code review, xử lý conflict và hoàn tác an toàn).</li>
-            <li>Tổ chức cấu trúc mã nguồn và tài liệu dự án mạch lạc, dễ đọc và dễ bảo trì cho cả nhóm.</li>
-            <li>Áp dụng thành thạo 4 trụ cột Tư duy tính toán vào phân tích và giải quyết bài toán kỹ thuật thực tế.</li>
+            <li>Xây dựng trang chủ <code>index.html</code>, bộ stylesheet dùng chung <code>assets/style.css</code> và mẫu trang cá nhân đồng bộ cho nhóm.</li>
+            <li>Làm việc hoàn toàn trên các nhánh riêng, gửi Pull Request và cập nhật phần đóng góp vào <code>docs/REPORT.md</code>.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="section" id="computational-thinking">
-      <h2 class="section-title">Ví dụ áp dụng Tư duy tính toán</h2>
+    <!-- 4. Ví dụ áp dụng Tư duy tính toán -->
+    <section class="section" id="tu-duy-tinh-toan">
+      <h2 class="section-title">Áp dụng Tư duy tính toán</h2>
       <p class="section-desc">
-        Cách mình áp dụng 4 trụ cột của Tư duy tính toán để tổ chức cấu trúc website và điều phối quy trình cộng tác cho nhóm 6 thành viên:
+        Cách chia nhỏ và chuẩn hóa website 7 trang để cả 6 thành viên làm song song mà không dẫm chân lên nhau:
       </p>
       <div class="ct-grid">
         <article class="ct-step">
-          <h3>1. Phân rã (Decomposition)</h3>
-          <p>
-            Chia website thành các phần độc lập: trang chủ điều hướng (<code>index.html</code>),
-            stylesheet dùng chung (<code>assets/style.css</code>) và 6 trang cá nhân riêng trong
-            <code>members/</code> để từng người làm việc song song mà không đè lên tệp của nhau.
-          </p>
+          <h3>1. Phân rã</h3>
+          <p>Tách trang chủ, file CSS dùng chung và 6 trang cá nhân trong <code>members/</code> để mỗi người phụ trách độc lập một tệp.</p>
         </article>
-
         <article class="ct-step">
-          <h3>2. Nhận diện mẫu (Pattern Recognition)</h3>
-          <p>
-            Nhận thấy cả 7 trang đều lặp lại cùng thanh điều hướng, hệ thống thẻ thông tin, bảng màu và chân trang;
-            từ đó gom toàn bộ quy tắc hiển thị vào một tệp <code>assets/style.css</code> thống nhất.
-          </p>
+          <h3>2. Nhận diện mẫu</h3>
+          <p>Gom thanh menu, bảng màu, lưới thẻ và chân trang lặp lại ở cả 7 trang về một stylesheet duy nhất.</p>
         </article>
-
         <article class="ct-step">
-          <h3>3. Trừu tượng hóa (Abstraction)</h3>
-          <p>
-            Giữ lại đúng những thông tin cốt lõi và đường dẫn tương đối gọn nhẹ (<code>../assets/style.css</code>,
-            <code>../index.html</code>), lược bỏ các thành phần kỹ thuật dư thừa như framework, backend hay cơ sở dữ liệu.
-          </p>
+          <h3>3. Trừu tượng hóa</h3>
+          <p>Chỉ giữ thông tin trọng tâm và đường dẫn tương đối gọn nhẹ, bỏ các lớp kỹ thuật dư thừa.</p>
         </article>
-
         <article class="ct-step">
-          <h3>4. Thiết kế thuật toán (Algorithm Design)</h3>
-          <p>
-            Chuẩn hóa quy trình cập nhật mã nguồn thành chuỗi bước xác định: tạo nhánh riêng &rarr; chỉnh sửa
-            &rarr; commit rõ nghĩa &rarr; push &rarr; mở Pull Request &rarr; review chéo &rarr; merge vào
-            <code>main</code> (và dùng <code>git revert</code> khi phát hiện lỗi).
-          </p>
+          <h3>4. Thiết kế thuật toán</h3>
+          <p>Chuẩn hóa quy trình cập nhật: nhánh riêng &rarr; chỉnh sửa &rarr; commit rõ nghĩa &rarr; Pull Request &rarr; review chéo &rarr; merge.</p>
         </article>
       </div>
     </section>
 
-    <div class="back-nav">
-      <a class="btn btn-secondary" href="../index.html">&larr; Quay lại trang chủ</a>
-    </div>
+    <!-- 5. GitHub hoặc sản phẩm cá nhân -->
+    <section class="section" id="lien-ket">
+      <div class="card">
+        <h2>GitHub &amp; Sản phẩm</h2>
+        <p>
+          Xem mã nguồn và các đóng góp của mình trên GitHub hoặc quay lại xem phần giới thiệu đồ án chung của nhóm.
+        </p>
+        <div class="hero-actions" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;">
+          <a class="btn" href="https://github.com/DrakyNeUwU" target="_blank" rel="noopener noreferrer">GitHub @DrakyNeUwU</a>
+          <a class="btn btn-secondary" href="../index.html#do-an">Xem đồ án chung</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Điều hướng qua lại giữa 6 thành viên -->
+    <nav class="member-pager" aria-label="Điều hướng giữa các thành viên">
+      <a class="pager-link" href="zt.html">&larr; Minh Nhật</a>
+      <a class="pager-link pager-center" href="../index.html#thanh-vien">Về nhóm</a>
+      <a class="pager-link pager-link--next" href="thu-anh.html">Thư Nguyễn &rarr;</a>
+    </nav>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <strong>Nhóm 1 &middot; Huy Khánh (@DrakyNeUwU)</strong>
+        <strong>Nhóm 1 &middot; Huy Khánh</strong>
         <p>Môn học: Tư duy tính toán</p>
       </div>
       <div class="footer-contact">
-        <a href="../index.html">Trang chủ</a>
         <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <a class="back-to-top" href="#top">&uarr; Về đầu trang</a>
       </div>
       <div class="footer-links">
         <a href="khanh.html">Huy Khánh</a>
