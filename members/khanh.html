@@ -14,10 +14,13 @@
       <img src="../assets/images/members/khanh.jpg" alt="Huy Khánh">
       <span>Huy Khánh</span>
     </a>
-    <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <span>Menu</span>
-    </button>
+    <div class="mobile-topbar-actions">
+      <a class="mobile-contact-btn" href="#lien-he">Liên hệ</a>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span>Menu</span>
+      </button>
+    </div>
   </header>
 
   <div class="mobile-drawer" id="mobile-nav" data-mobile-drawer>
@@ -25,13 +28,13 @@
       <li><a class="active" href="#gioi-thieu" data-nav-link>Trang chủ</a></li>
       <li><a href="#du-an" data-nav-link>Dự án</a></li>
       <li><a href="#ve-minh" data-nav-link>Về mình</a></li>
+      <li><a href="#ky-nang" data-nav-link>Kỹ năng</a></li>
       <li><a href="#lien-he" data-nav-link>Liên hệ</a></li>
     </ul>
-    <div class="sidebar-bottom" style="margin-top:14px;">
+    <div class="sidebar-bottom" style="margin-top:16px;">
       <a class="sidebar-back" href="../index.html">&larr; Về website nhóm</a>
       <div class="sidebar-links">
         <a class="sidebar-chip" href="../assets/docs/CV_NguyenHuyKhanh.pdf" target="_blank" rel="noopener noreferrer">Xem CV</a>
-        <a class="sidebar-chip" href="https://github.com/DrakyNeUwU" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </div>
@@ -45,7 +48,7 @@
             <img src="../assets/images/members/khanh.jpg" alt="Ảnh đại diện Nguyễn Huy Khánh">
           </div>
           <p class="sidebar-name">Nguyễn Huy Khánh</p>
-          <p class="sidebar-role">Sinh viên CNTT &middot; HCMUS</p>
+          <p class="sidebar-role">Sinh viên CNTT &middot; AI-Assisted Builder</p>
         </div>
 
         <nav aria-label="Mục chính">
@@ -69,6 +72,12 @@
               </a>
             </li>
             <li>
+              <a href="#ky-nang" data-nav-link>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Kỹ năng</span>
+              </a>
+            </li>
+            <li>
               <a href="#lien-he" data-nav-link>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <span>Liên hệ</span>
@@ -83,16 +92,17 @@
         <div class="sidebar-links">
           <a class="sidebar-chip" href="../assets/docs/CV_NguyenHuyKhanh.pdf" target="_blank" rel="noopener noreferrer">Xem CV</a>
           <a class="sidebar-chip" href="https://github.com/DrakyNeUwU" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="sidebar-chip" href="https://www.linkedin.com/in/huy-kh%C3%A1nh-nguy%E1%BB%85n-7a3a803b2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </aside>
 
     <!-- Nội dung chính -->
     <main class="main-content">
-      <!-- 1. Giới thiệu mở đầu (Brice-style Hero) -->
+      <!-- 1. Hero -->
       <section class="hero-section" id="gioi-thieu">
         <a class="hero-top-cta" href="#lien-he">
-          <span>Liên hệ</span>
+          <span>Liên hệ với mình</span>
           <span class="hero-top-arrow" aria-hidden="true">&rarr;</span>
         </a>
 
@@ -102,20 +112,20 @@
           <div class="code-lines">
             <div class="code-line">
               <span class="line-num">01</span>
-              <h1 class="hero-display"><span class="angle">&lt;</span>Chào bạn, mình là <span class="highlight">Huy Khánh!</span><span class="angle">&gt;</span></h1>
+              <h1 class="hero-display"><span class="angle">&lt;</span> Xin chào, mình là <span class="highlight">Huy Khánh.</span> <span class="angle">&gt;</span></h1>
             </div>
             <div class="code-line">
               <span class="line-num">02</span>
-              <p class="hero-display"><span class="angle">&lt;</span>Mình biến <span class="highlight">yêu cầu thực tế</span></p>
+              <p class="hero-display"><span class="angle">&lt;</span> Mình biến <span class="highlight">ý tưởng thực tế</span></p>
             </div>
             <div class="code-line">
               <span class="line-num">03</span>
-              <p class="hero-display"><span class="line-num-indent">thành <span class="highlight">sản phẩm chạy thật</span> cùng AI.<span class="angle">&gt;</span></span></p>
+              <p class="hero-display"><span class="line-num-indent">thành <span class="highlight">sản phẩm chạy thật.</span> <span class="angle">&gt;</span></span></p>
             </div>
           </div>
 
           <p class="hero-tagline">
-            Khảo sát bài toán, viết đặc tả rõ ràng và kiểm chứng ngay trên sản phẩm thật.
+            Mình quan tâm đến AI, vibe coding và quy trình từ đặc tả rõ ràng đến sản phẩm thực tế dễ dùng.
           </p>
         </div>
 
@@ -128,48 +138,60 @@
       </section>
 
       <div class="page-wrap">
-        <!-- 2. Dự án nổi bật -->
+        <!-- 2. Dự án chọn lọc -->
         <section class="content-section reveal" id="du-an">
-          <span class="section-kicker">Dự án nổi bật</span>
-          <h2 class="section-heading">Sản phẩm &amp; đóng góp thực tế</h2>
+          <span class="section-kicker">Dự án chọn lọc</span>
+          <h2 class="section-heading">Một vài dự án mình đã nghiên cứu và xây dựng</h2>
           <p class="section-intro">
-            Ba dự án tiêu biểu gắn với phần việc mình trực tiếp khảo sát yêu cầu, viết đặc tả và phối hợp triển khai.
+            Các sản phẩm được chọn lọc gắn với vai trò trực tiếp của mình từ bước khảo sát bài toán, chuẩn hóa dữ liệu đến triển khai thực tế.
           </p>
 
-          <article class="project-featured">
-            <div class="project-shot">
-              <img src="../assets/images/project-travel-welcome.png" alt="Giao diện ứng dụng Travel Planning Virtual Assistant">
+          <!-- Featured Case Study #1 (Full-width large showcase) -->
+          <article class="project-showcase-card">
+            <div class="project-shot-large">
+              <img src="../assets/images/project-travel-welcome.png" alt="Giao diện ứng dụng Trợ lý lập kế hoạch du lịch (Travel Planning Virtual Assistant)">
             </div>
-            <div class="project-body">
-              <div class="project-meta-row">
-                <span class="project-meta">Đồ án Nhóm 1 &middot; Tư duy tính toán</span>
-              </div>
-              <h3 class="project-title">Travel Planning Virtual Assistant</h3>
-              <p class="project-desc">Ứng dụng hỗ trợ lập lịch trình du lịch Việt Nam hợp lý theo ngày đi, ngân sách và nhịp độ di chuyển.</p>
-              <p class="project-role"><strong>Vai trò:</strong> Phối hợp giao diện, chuẩn hóa dữ liệu đầu vào &amp; dựng website nhóm.</p>
-              <ul class="project-points">
-                <li>Thiết kế schema dữ liệu (Pydantic, JSON Schema) và chuẩn hóa đầu vào tại <code>input_service.py</code>.</li>
-                <li>Phối hợp phát triển giao diện web React + Vite cho luồng nhập yêu cầu và dựng website nhóm 7 trang bằng HTML/CSS.</li>
-              </ul>
-              <details class="project-details">
-                <summary>Chi tiết kỹ thuật</summary>
-                <div class="details-body">
-                  <ul class="tag-row">
-                    <li class="tag">React + Vite</li>
-                    <li class="tag">Pydantic Schema</li>
-                    <li class="tag">JSON Schema</li>
-                    <li class="tag">HTML5 / CSS3</li>
-                  </ul>
-                  <p>Xây dựng giao diện nhóm 7 trang responsive (không framework), chuẩn hóa điều hướng chéo và quy trình Pull Request / review trên GitHub.</p>
+            <div class="project-showcase-grid">
+              <div>
+                <div class="project-meta-row">
+                  <span class="project-meta">Đồ án cá nhân trong Nhóm 1 &middot; Tư duy tính toán &middot; 2026</span>
                 </div>
-              </details>
-              <div class="project-links">
-                <a href="../index.html#do-an">Xem trên trang nhóm &rarr;</a>
-                <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>
+                <h3 class="project-title">Trợ lý lập kế hoạch du lịch</h3>
+                <p class="project-en-sub">Travel Planning Virtual Assistant</p>
+                <p class="project-desc">
+                  Một trải nghiệm số giúp người dùng khám phá địa điểm, xây dựng lịch trình và quản lý chuyến đi trong một nơi.
+                </p>
+                <ul class="project-highlights">
+                  <li>Lịch trình cá nhân hóa</li>
+                  <li>Gợi ý địa điểm</li>
+                  <li>Quản lý chuyến đi</li>
+                </ul>
+              </div>
+              <div class="project-showcase-side">
+                <p class="project-role">
+                  <strong>Vai trò cá nhân:</strong> Phối hợp phát triển giao diện React + Vite, thiết kế Pydantic/JSON Schema đầu vào tại <code>input_service.py</code> và dựng website nhóm 7 trang bằng HTML/CSS.
+                </p>
+                <details class="project-details">
+                  <summary>Chi tiết kỹ thuật</summary>
+                  <div class="details-body">
+                    <ul class="tag-row">
+                      <li class="tag">React + Vite</li>
+                      <li class="tag">Pydantic Schema</li>
+                      <li class="tag">JSON Schema</li>
+                      <li class="tag">HTML5 / CSS3</li>
+                    </ul>
+                    <p>Chuẩn hóa luồng nhập liệu có kiểm chứng ngân sách/thời gian và điều phối quy trình Pull Request, review chéo trên GitHub.</p>
+                  </div>
+                </details>
+                <div class="project-links">
+                  <a class="link-primary-arrow" href="../index.html#do-an">Xem case study trên trang nhóm &rarr;</a>
+                  <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>
+                </div>
               </div>
             </div>
           </article>
 
+          <!-- Projects #2 & #3 -->
           <div class="project-grid">
             <article class="project-card">
               <!-- Thay ảnh preview thật bằng thẻ:
@@ -189,10 +211,10 @@
               </div>
               <h3 class="project-title">Minh Hien Machinery</h3>
               <p class="project-desc">Website thương mại giới thiệu danh mục máy nông nghiệp và cổng quản trị cho Công ty TNHH XNK Minh Hiển.</p>
-              <p class="project-role"><strong>Vai trò:</strong> Khảo sát yêu cầu, viết đặc tả điều phối AI &amp; triển khai production.</p>
+              <p class="project-role"><strong>Vai trò cá nhân:</strong> Khảo sát yêu cầu thực tế, viết đặc tả điều phối AI coding agents và triển khai production.</p>
               <ul class="project-points">
-                <li>Viết đặc tả chi tiết và điều phối AI coding agents xây dựng catalog có bộ lọc, cổng quản trị, Google Sign-In và Google Analytics.</li>
-                <li>Triển khai lên Linux VPS với tên miền riêng, Cloudflare proxy, HTTPS và sao lưu tự động.</li>
+                <li>Hoàn thiện catalog có bộ lọc, cổng quản trị media, Google Sign-In, YouTube/Maps và Google Analytics.</li>
+                <li>Triển khai trên Linux VPS với tên miền riêng, Cloudflare proxy, HTTPS và sao lưu tự động.</li>
               </ul>
               <details class="project-details">
                 <summary>Chi tiết kỹ thuật</summary>
@@ -203,11 +225,11 @@
                     <li class="tag">Linux VPS</li>
                     <li class="tag">Cloudflare</li>
                   </ul>
-                  <p>AI-Assisted Build kết hợp quản lý media, nhúng YouTube/Google Maps và tinh chỉnh prompt lặp lại qua kiểm thử thực tế.</p>
+                  <p>AI-Assisted Build với quy trình viết spec chi tiết và tinh chỉnh prompt qua kiểm thử trực tiếp.</p>
                 </div>
               </details>
               <div class="project-links">
-                <a href="https://minhhienmachinery.com.vn/" target="_blank" rel="noopener noreferrer">Truy cập website Live &#8599;</a>
+                <a class="link-primary-arrow" href="https://minhhienmachinery.com.vn/" target="_blank" rel="noopener noreferrer">Truy cập website Live &#8599;</a>
               </div>
             </article>
 
@@ -228,10 +250,10 @@
               </div>
               <h3 class="project-title">Financial Management Recommendation System (FMRS)</h3>
               <p class="project-desc">Ứng dụng quản lý chi tiêu cá nhân kèm gợi ý ngân sách 50/30/20 và dự báo số dư cuối tháng.</p>
-              <p class="project-role"><strong>Vai trò:</strong> Thiết kế tính năng, đặc tả quy tắc ngân sách &amp; điều phối AI-assisted workflow.</p>
+              <p class="project-role"><strong>Vai trò cá nhân:</strong> Thiết kế tính năng, đặc tả quy tắc ngân sách và điều phối AI-assisted workflow.</p>
               <ul class="project-points">
-                <li>Thiết kế luồng theo dõi giao dịch, dashboard xu hướng chi tiêu theo ngày/danh mục và dự báo số dư cuối tháng.</li>
-                <li>Đặc tả quy tắc 50/30/20 kèm cảnh báo vượt mức và nhập nhanh biểu thức toán học ngay trong ô số tiền (ví dụ <code>33000+36000</code>).</li>
+                <li>Thiết kế luồng theo dõi giao dịch, dashboard xu hướng theo ngày/danh mục và dự báo số dư cuối tháng.</li>
+                <li>Đặc tả quy tắc 50/30/20 kèm cảnh báo vượt mức và nhập biểu thức toán học ngay trong ô số tiền (<code>33000+36000</code>).</li>
               </ul>
               <details class="project-details">
                 <summary>Chi tiết kỹ thuật</summary>
@@ -241,48 +263,26 @@
                     <li class="tag">Next.js</li>
                     <li class="tag">Supabase</li>
                   </ul>
-                  <p>AI-Assisted Build bao gồm xác thực người dùng, đối chiếu chi tiêu theo từng tháng và gợi ý điều chỉnh hạn mức.</p>
+                  <p>AI-Assisted Build với xác thực người dùng, đối chiếu chi tiêu theo từng tháng và gợi ý điều chỉnh hạn mức.</p>
                 </div>
               </details>
               <div class="project-links">
-                <a href="https://github.com/DrakyNeUwU/Financial-Management-Recommendation-System" target="_blank" rel="noopener noreferrer">Xem mã nguồn GitHub &#8599;</a>
+                <a class="link-primary-arrow" href="https://github.com/DrakyNeUwU/Financial-Management-Recommendation-System" target="_blank" rel="noopener noreferrer">Xem mã nguồn GitHub &#8599;</a>
               </div>
             </article>
           </div>
         </section>
 
-        <!-- 3. Về mình & Kỹ năng -->
+        <!-- 3. Về mình -->
         <section class="content-section reveal" id="ve-minh">
           <span class="section-kicker">Về mình</span>
-          <h2 class="section-heading">Câu chuyện, kỹ năng &amp; nền tảng</h2>
+          <h2 class="section-heading">Cách mình học và làm sản phẩm</h2>
 
           <blockquote class="about-story">
             Chào bạn, mình là Khánh &mdash; sinh viên năm hai ngành Công nghệ Thông tin tại HCMUS.
             Mình rất hứng thú với AI và vibe coding, và mình tin cách học hiệu quả nhất là tự tay làm ra một thứ gì đó thật sự hữu ích.
             Khi gặp một bài toán mang lại giá trị thực tế, mình sẵn sàng ngồi hàng giờ để làm cho tới nơi tới chốn.
           </blockquote>
-
-          <div class="about-subblock">
-            <h3 class="subblock-title">Kỹ năng có minh chứng</h3>
-            <ul class="skill-rows">
-              <li class="skill-row">
-                <span class="skill-name">HTML5 &amp; CSS3</span>
-                <span class="skill-proof">Dựng trang web nhóm 7 trang responsive không dùng framework.</span>
-              </li>
-              <li class="skill-row">
-                <span class="skill-name">C++, Python &amp; SQL</span>
-                <span class="skill-proof">Nền tảng từ các môn học tại HCMUS; viết Pydantic schema và chuẩn hóa dữ liệu đầu vào.</span>
-              </li>
-              <li class="skill-row">
-                <span class="skill-name">Git &amp; GitHub Workflow</span>
-                <span class="skill-proof">Làm việc theo feature branch, Pull Request, review chéo và xử lý conflict.</span>
-              </li>
-              <li class="skill-row">
-                <span class="skill-name">Prompt Engineering &amp; AI-Assisted Prototyping</span>
-                <span class="skill-proof">Viết spec, thiết kế prompt điều phối AI coding agents trong Minh Hien Machinery và FMRS.</span>
-              </li>
-            </ul>
-          </div>
 
           <div class="about-subblock">
             <h3 class="subblock-title">Học vấn &amp; Chứng chỉ</h3>
@@ -314,7 +314,7 @@
             </ol>
           </div>
 
-          <div class="about-subblock ct-block">
+          <div class="about-subblock">
             <h3 class="subblock-title">Áp dụng Tư duy tính toán trong website nhóm</h3>
             <div class="ct-grid">
               <div class="ct-step">
@@ -337,12 +337,77 @@
           </div>
         </section>
 
-        <!-- 4. Liên hệ & Điều hướng nhóm -->
+        <!-- 4. Kỹ năng (3 nhóm gọn khớp CV) -->
+        <section class="content-section reveal" id="ky-nang">
+          <span class="section-kicker">Kỹ năng</span>
+          <h2 class="section-heading">Năng lực chính &amp; công cụ sử dụng</h2>
+          <p class="section-intro">
+            Tập trung vào những kỹ năng đã trực tiếp rèn luyện qua môn học tại HCMUS và áp dụng trên sản phẩm thực tế.
+          </p>
+
+          <div class="skills-columns">
+            <div class="skill-group">
+              <h3>Xây dựng &amp; Dữ liệu</h3>
+              <ul>
+                <li>
+                  <strong>HTML5 &amp; CSS3</strong>
+                  <span>Dựng website nhóm 7 trang responsive không dùng framework.</span>
+                </li>
+                <li>
+                  <strong>C++, Python &amp; SQL</strong>
+                  <span>Nền tảng HCMUS; viết Pydantic schema và chuẩn hóa dữ liệu đầu vào.</span>
+                </li>
+                <li>
+                  <strong>Responsive Layout</strong>
+                  <span>Tổ chức giao diện đọc rõ ràng trên cả máy tính và điện thoại.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <h3>AI &amp; Quy trình phát triển</h3>
+              <ul>
+                <li>
+                  <strong>Prompt Engineering</strong>
+                  <span>Thiết kế prompt có cấu trúc để kiểm soát đầu ra ổn định.</span>
+                </li>
+                <li>
+                  <strong>Spec-Driven Prototyping</strong>
+                  <span>Viết đặc tả điều phối AI coding agents trong Minh Hien Machinery &amp; FMRS.</span>
+                </li>
+                <li>
+                  <strong>Git &amp; GitHub Workflow</strong>
+                  <span>Feature branch, Pull Request, review chéo và xử lý conflict.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <h3>Công cụ &amp; Quản trị</h3>
+              <ul>
+                <li>
+                  <strong>VS Code &amp; Linux CLI</strong>
+                  <span>Môi trường lập trình và vận hành triển khai hằng ngày.</span>
+                </li>
+                <li>
+                  <strong>Power BI</strong>
+                  <span>Trực quan hóa và tổng hợp số liệu theo biểu đồ rõ ràng.</span>
+                </li>
+                <li>
+                  <strong>Project Management</strong>
+                  <span>Chứng chỉ Google Project Management &amp; kỹ năng làm việc nhóm.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Liên hệ & Cuối trang -->
         <section class="content-section reveal" id="lien-he">
           <span class="section-kicker">Liên hệ</span>
           <h2 class="section-heading">Kết nối với mình</h2>
           <p class="section-intro">
-            Bạn có thể xem nhanh CV hoặc liên hệ trực tiếp qua các kênh cá nhân dưới đây.
+            Bạn có thể xem nhanh CV hoặc trao đổi trực tiếp qua các kênh cá nhân dưới đây.
           </p>
 
           <div class="contact-grid">

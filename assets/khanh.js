@@ -30,7 +30,7 @@
   }
 
   const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-  const sections = ['gioi-thieu', 'du-an', 've-minh', 'lien-he']
+  const sections = ['gioi-thieu', 'du-an', 've-minh', 'ky-nang', 'lien-he']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
