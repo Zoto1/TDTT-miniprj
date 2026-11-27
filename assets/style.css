@@ -606,9 +606,15 @@ main.container {
   object-position: top;
 }
 
-.shot-site {
+.project-gallery .shot-site {
   grid-row: span 2;
   min-height: 420px;
+  background-color: #f6f4ef;
+}
+
+.project-gallery .shot-site img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .shot-github {
