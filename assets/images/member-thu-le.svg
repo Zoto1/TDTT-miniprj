@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-label="Ảnh đại diện Thư Lê">
-  <rect width="640" height="480" fill="#eff6ff"/>
-  <circle cx="530" cy="95" r="110" fill="#dbeafe" opacity="0.8"/>
-  <circle cx="100" cy="400" r="90" fill="#bfdbfe" opacity="0.55"/>
-  <circle cx="320" cy="185" r="76" fill="#1d4ed8"/>
-  <path d="M180 410 C180 315 245 280 320 280 C395 280 460 315 460 410 Z" fill="#1d4ed8"/>
-  <text x="320" y="198" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="44" font-weight="700">TL</text>
-</svg>

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-label="Ảnh đại diện Sand">
-  <rect width="640" height="480" fill="#fff7ed"/>
-  <circle cx="535" cy="95" r="105" fill="#fed7aa" opacity="0.7"/>
-  <circle cx="105" cy="395" r="92" fill="#fdba74" opacity="0.4"/>
-  <circle cx="320" cy="185" r="76" fill="#c2410c"/>
-  <path d="M180 410 C180 315 245 280 320 280 C395 280 460 315 460 410 Z" fill="#c2410c"/>
-  <text x="320" y="198" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="44" font-weight="700">SA</text>
-</svg>

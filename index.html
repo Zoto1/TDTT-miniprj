@@ -3,233 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhóm Tư Duy Tính Toán - Dự án Git &amp; GitHub</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Nhóm 1 - Tư duy tính toán &amp; Đồ án Git</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header site-header--hero">
     <div class="container">
-      <nav class="site-nav" aria-label="Điều hướng chính">
-        <a class="nav-brand" href="index.html">Nhóm TDTT</a>
+      <nav class="site-nav site-nav--centered" aria-label="Điều hướng chính">
         <ul class="nav-links">
-          <li><a class="active" href="index.html">Trang chủ</a></li>
-          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a class="active" href="#trang-chu">Trang chủ</a></li>
+          <li><a href="#ve-nhom">Về nhóm</a></li>
           <li><a href="#thanh-vien">Thành viên</a></li>
           <li><a href="#do-an">Đồ án</a></li>
-          <li>
-            <details class="nav-dropdown">
-              <summary>Trang riêng (6)</summary>
-              <div class="nav-dropdown-menu">
-                <a href="members/khanh.html">Khánh</a>
-                <a href="members/thu-le.html">Thư Lê</a>
-                <a href="members/thu-anh.html">Thư Anh</a>
-                <a href="members/thien.html">Thiện</a>
-                <a href="members/sand.html">Sand</a>
-                <a href="members/zt.html">ZT</a>
-              </div>
-            </details>
-          </li>
+          <li><a href="#lien-he">Liên hệ</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- 1. Mở đầu -->
-    <section class="hero-split" id="hero">
-      <div class="hero-copy">
-        <span class="badge">Môn Tư duy tính toán &middot; Mini-project Git &amp; GitHub</span>
-        <h1 id="site-title">Nhóm Tư Duy Tính Toán</h1>
-        <p>
-          Sáu thành viên cùng xây dựng website giới thiệu nhóm và rèn luyện quy trình cộng tác mã nguồn chuẩn với Git &amp; GitHub.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#thanh-vien">Khám phá thành viên</a>
-          <a class="btn btn-secondary" href="#do-an">Xem đồ án</a>
-        </div>
-      </div>
-      <!-- Thay ảnh chụp chung thật của nhóm vào assets/images/group-hero.jpg nếu cần -->
-      <div class="media-frame hero-media">
-        <img src="assets/images/group-hero.jpg" alt="Ảnh tượng trưng sáu thành viên nhóm Tư duy tính toán đang thảo luận cùng nhau">
+  <main>
+    <!-- 1. Phần mở đầu -->
+    <section class="hero-cover" id="trang-chu">
+      <!-- Thay ảnh chụp chung thật của nhóm tại assets/images/group-hero.jpg -->
+      <img class="hero-bg" src="assets/images/group-hero.jpg" alt="Ảnh chung sáu thành viên Nhóm 1 đang thảo luận">
+      <div class="hero-content">
+        <p class="hero-greeting">Xin chào, chúng mình là</p>
+        <h1 id="site-title">Nhóm 1</h1>
+        <p class="hero-subtitle">Website giới thiệu nhóm &middot; Đồ án Git &amp; GitHub</p>
+        <a class="btn btn-hero" href="#thanh-vien">Gặp gỡ 6 thành viên</a>
       </div>
     </section>
 
-    <!-- 2. Về nhóm mình -->
-    <section class="section" id="gioi-thieu">
-      <div class="section-header">
-        <h2 class="section-title">Về nhóm mình</h2>
-        <p class="section-desc">Thông tin ngắn gọn về lớp học, đồ án và mục tiêu chung của cả sáu thành viên.</p>
-      </div>
-      <div class="about-split">
-        <div class="media-frame about-media">
-          <img src="assets/images/about-team.svg" alt="Minh họa bốn trụ cột Tư duy tính toán và cách chia việc nhóm">
-        </div>
-        <div class="about-cards">
-          <article class="info-block">
-            <h3>Lớp học</h3>
-            <p>Môn <strong>Tư duy tính toán</strong> &mdash; Nhóm thực hành gồm 6 sinh viên phối hợp làm việc trên cùng một repository.</p>
-          </article>
-          <article class="info-block">
-            <h3>Đồ án</h3>
-            <p>Website tĩnh 7 trang HTML/CSS giới thiệu nhóm, quản lý toàn bộ lịch sử thay đổi và tài liệu bằng Git &amp; GitHub.</p>
-          </article>
-          <article class="info-block">
-            <h3>Mục tiêu chung</h3>
-            <p>Thành thạo tách nhánh độc lập, Pull Request, review chéo, giải quyết merge conflict, <code>git revert</code> và xuất bản GitHub Pages.</p>
-          </article>
+    <!-- 2. Về nhóm -->
+    <section class="section band-white" id="ve-nhom">
+      <div class="container about">
+        <figure class="frame about-photo">
+          <img src="assets/images/about-desk.jpg" alt="Góc bàn học và sổ phác thảo lưu đồ của Nhóm 1">
+        </figure>
+        <div>
+          <span class="eyebrow">Về nhóm</span>
+          <h2>Một nhóm, một repository, sáu góc nhìn</h2>
+          <ol class="about-list">
+            <li>
+              <span class="num">01</span>
+              <div>
+                <h3>Lớp học</h3>
+                <p>Môn Tư duy tính toán &mdash; Nhóm 1 gồm 6 sinh viên phối hợp thực hành trên repository chung của nhóm.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <div>
+                <h3>Đồ án</h3>
+                <p>Website tĩnh HTML/CSS gồm 7 trang giới thiệu nhóm, quản lý toàn bộ thay đổi và tài liệu bằng Git &amp; GitHub.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <div>
+                <h3>Mục tiêu chung</h3>
+                <p>Thành thạo tách nhánh độc lập, Pull Request, review chéo, giải quyết merge conflict, <code>git revert</code> và xuất bản GitHub Pages.</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- 3. Các thành viên -->
+    <!-- 3. Thành viên (3 cột x 2 hàng, không chia phòng ban) -->
     <section class="section" id="thanh-vien">
-      <div class="section-header">
-        <h2 class="section-title">Các thành viên</h2>
-        <p class="section-desc">Hiển thị chung cả 6 thành viên, mỗi người phụ trách một trang HTML và một nhiệm vụ Git riêng.</p>
-      </div>
+      <div class="container">
+        <div class="members-head">
+          <div>
+            <span class="eyebrow">Thành viên</span>
+            <h2>Gặp gỡ 6 thành viên</h2>
+          </div>
+          <p>Mỗi thành viên phụ trách một trang riêng và cùng nhau thực hành quy trình Git &amp; GitHub.</p>
+        </div>
 
-      <div class="member-grid">
-        <article class="member-card">
-          <div class="member-photo">
-            <img src="assets/images/member-khanh.svg" alt="Khánh">
-          </div>
-          <div class="member-card-body">
-            <h3>Khánh</h3>
-            <span class="member-role">Trang chủ &amp; Điều hướng</span>
-            <p>Thiết kế giao diện trang chủ, hệ thống điều hướng 7 trang và trang cá nhân <code>members/khanh.html</code>.</p>
-            <a class="btn-link" href="members/khanh.html">Xem trang Khánh</a>
-          </div>
-        </article>
+        <div class="member-grid">
+          <article class="member-card">
+            <div class="member-photo" data-tone="1">
+              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/khanh.jpg" alt="Khánh"> -->
+              <span class="monogram" aria-hidden="true">KH</span>
+            </div>
+            <div class="member-body">
+              <h3>Khánh</h3>
+              <p class="member-bio">Phụ trách giao diện trang chủ, hệ thống điều hướng dùng chung và trang cá nhân.</p>
+              <a class="btn-outline" href="members/khanh.html">Xem giới thiệu</a>
+            </div>
+          </article>
 
-        <article class="member-card">
-          <div class="member-photo">
-            <img src="assets/images/member-thu-le.svg" alt="Thư Lê">
-          </div>
-          <div class="member-card-body">
-            <h3>Thư Lê</h3>
-            <span class="member-role">Trang cá nhân &amp; Merge Conflict</span>
-            <p>Phụ trách trang <code>members/thu-le.html</code> và thực hành tạo tình huống xung đột tiêu đề trang chủ.</p>
-            <a class="btn-link" href="members/thu-le.html">Xem trang Thư Lê</a>
-          </div>
-        </article>
+          <article class="member-card">
+            <div class="member-photo" data-tone="2">
+              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/thu-le.jpg" alt="Thư Lê"> -->
+              <span class="monogram" aria-hidden="true">TL</span>
+            </div>
+            <div class="member-body">
+              <h3>Thư Lê</h3>
+              <p class="member-bio">Xây dựng trang giới thiệu cá nhân và tham gia bài thực hành xung đột tiêu đề trang chủ.</p>
+              <a class="btn-outline" href="members/thu-le.html">Xem giới thiệu</a>
+            </div>
+          </article>
 
-        <article class="member-card">
-          <div class="member-photo">
-            <img src="assets/images/member-thu-anh.svg" alt="Thư Anh">
-          </div>
-          <div class="member-card-body">
-            <h3>Thư Anh</h3>
-            <span class="member-role">Trang cá nhân &amp; Merge Conflict</span>
-            <p>Phụ trách trang <code>members/thu-anh.html</code> và phối hợp xử lý, hoàn tất merge conflict.</p>
-            <a class="btn-link" href="members/thu-anh.html">Xem trang Thư Anh</a>
-          </div>
-        </article>
+          <article class="member-card">
+            <div class="member-photo" data-tone="3">
+              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/thu-anh.jpg" alt="Thư Anh"> -->
+              <span class="monogram" aria-hidden="true">TA</span>
+            </div>
+            <div class="member-body">
+              <h3>Thư Anh</h3>
+              <p class="member-bio">Hoàn thiện trang cá nhân và phối hợp xử lý, kiểm thử website sau khi giải quyết merge conflict.</p>
+              <a class="btn-outline" href="members/thu-anh.html">Xem giới thiệu</a>
+            </div>
+          </article>
 
-        <article class="member-card">
-          <div class="member-photo">
-            <img src="assets/images/member-thien.svg" alt="Thiện">
-          </div>
-          <div class="member-card-body">
-            <h3>Thiện</h3>
-            <span class="member-role">Trang cá nhân &amp; Tạo lỗi mẫu</span>
-            <p>Phụ trách trang <code>members/thien.html</code> và tạo commit điều hướng sai để nhóm thực hành kiểm tra.</p>
-            <a class="btn-link" href="members/thien.html">Xem trang Thiện</a>
-          </div>
-        </article>
+          <article class="member-card">
+            <div class="member-photo" data-tone="4">
+              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/thien.jpg" alt="Thiện"> -->
+              <span class="monogram" aria-hidden="true">TH</span>
+            </div>
+            <div class="member-body">
+              <h3>Thiện</h3>
+              <p class="member-bio">Phát triển trang cá nhân và tạo tình huống commit điều hướng lỗi qua Pull Request để nhóm thực hành.</p>
+              <a class="btn-outline" href="members/thien.html">Xem giới thiệu</a>
+            </div>
+          </article>
 
-        <article class="member-card">
-          <div class="member-photo">
-            <img src="assets/images/member-sand.svg" alt="Sand">
-          </div>
-          <div class="member-card-body">
-            <h3>Sand</h3>
-            <span class="member-role">Trang cá nhân &amp; Git Revert</span>
-            <p>Phụ trách trang <code>members/sand.html</code>, truy vết commit lỗi và hoàn tác an toàn bằng <code>git revert</code>.</p>
-            <a class="btn-link" href="members/sand.html">Xem trang Sand</a>
-          </div>
-        </article>
+          <article class="member-card">
+            <div class="member-photo" data-tone="5">
+              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/sand.jpg" alt="Sand"> -->
+              <span class="monogram" aria-hidden="true">SA</span>
+            </div>
+            <div class="member-body">
+              <h3>Sand</h3>
+              <p class="member-bio">Phụ trách trang cá nhân, truy vết commit lỗi trong lịch sử và hoàn tác an toàn bằng <code>git revert</code>.</p>
+              <a class="btn-outline" href="members/sand.html">Xem giới thiệu</a>
+            </div>
+          </article>
 
-        <article class="member-card">
-          <div class="member-photo">
-            <img src="assets/images/member-zt.svg" alt="ZT">
-          </div>
-          <div class="member-card-body">
-            <h3>ZT</h3>
-            <span class="member-role">Release, Tag &amp; GitHub Pages</span>
-            <p>Khởi tạo repo, phụ trách <code>members/zt.html</code>, cập nhật <code>CHANGELOG.md</code>, tag <code>v1.0.0</code> và GitHub Pages.</p>
-            <a class="btn-link" href="members/zt.html">Xem trang ZT</a>
-          </div>
-        </article>
+          <article class="member-card">
+            <div class="member-photo" data-tone="6">
+              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/zt.jpg" alt="ZT"> -->
+              <span class="monogram" aria-hidden="true">ZT</span>
+            </div>
+            <div class="member-body">
+              <h3>ZT</h3>
+              <p class="member-bio">Khởi tạo repository, xây dựng trang cá nhân, cập nhật changelog, gắn tag phát hành và bật GitHub Pages.</p>
+              <a class="btn-outline" href="members/zt.html">Xem giới thiệu</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- 4. Đồ án của nhóm -->
-    <section class="section" id="do-an">
-      <div class="section-header">
-        <h2 class="section-title">Đồ án của nhóm</h2>
-        <p class="section-desc">Sản phẩm kết hợp giữa website tĩnh HTML/CSS 7 trang và bộ bằng chứng thực hành Git &amp; GitHub hoàn chỉnh.</p>
-      </div>
-
-      <div class="project-list">
-        <article class="project-row">
-          <div class="media-frame project-media">
-            <img src="assets/images/project-ui.svg" alt="Minh họa giao diện website 7 trang">
+    <section class="section band-ink" id="do-an">
+      <div class="container">
+        <div class="project-top">
+          <div>
+            <span class="eyebrow">Đồ án</span>
+            <h2>Đồ án của nhóm</h2>
           </div>
-          <div class="project-body">
-            <h3>1. Website tĩnh 7 trang dùng chung Design System</h3>
+          <div>
             <p>
-              Trang chủ và 6 trang thành viên sử dụng chung bảng màu, kiểu chữ <code>Be Vietnam Pro</code>,
-              lưới 3 cột trên máy tính và tự thu về 1 cột gọn gàng trên điện thoại.
+              Website tĩnh không dùng framework hay backend. Phần trọng tâm nằm ở quy trình Git: mỗi trang phát triển
+              trên nhánh riêng, mở Pull Request để thành viên khác review trước khi hợp nhất vào <code>main</code>.
             </p>
+            <ul class="project-facts">
+              <li>HTML &amp; CSS thuần</li>
+              <li>Nhánh riêng cho từng trang</li>
+              <li>Pull Request có review</li>
+              <li>Tag v1.0.0 &amp; GitHub Pages</li>
+            </ul>
           </div>
-        </article>
+        </div>
 
-        <article class="project-row">
-          <div class="media-frame project-media">
-            <img src="assets/images/project-git.svg" alt="Minh họa quy trình Git Branch, Pull Request và Revert">
-          </div>
-          <div class="project-body">
-            <h3>2. Quy trình Branch, Pull Request, Conflict &amp; Revert</h3>
-            <p>
-              Mọi thay đổi đều phát triển trên nhánh riêng, gửi Pull Request để thành viên khác review trước khi merge,
-              kèm bài thực hành xử lý merge conflict và hoàn tác bằng <code>git revert</code>.
-            </p>
-          </div>
-        </article>
-
-        <article class="project-row">
-          <div class="media-frame project-media">
-            <img src="assets/images/project-deploy.svg" alt="Minh họa báo cáo Markdown, tag phát hành và GitHub Pages">
-          </div>
-          <div class="project-body">
-            <h3>3. Báo cáo Markdown, Tag <code>v1.0.0</code> &amp; GitHub Pages</h3>
-            <p>
-              Tổng hợp toàn bộ lịch sử đóng góp, ảnh minh chứng và link commit/PR vào
-              <a href="docs/REPORT.md">docs/REPORT.md</a>, gắn tag phát hành <code>v1.0.0</code> và xuất bản công khai qua GitHub Pages.
-            </p>
-          </div>
-        </article>
+        <div class="project-gallery">
+          <figure class="frame shot-site">
+            <img src="assets/images/project-site.png" alt="Ảnh chụp trang cá nhân của Khánh">
+          </figure>
+          <figure class="frame shot-github">
+            <img src="assets/images/project-github.png" alt="Danh sách Pull Request của nhóm trên GitHub">
+          </figure>
+          <figure class="frame shot-phone">
+            <img src="assets/images/project-mobile.png" alt="Trang chủ hiển thị trên màn hình điện thoại">
+          </figure>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <!-- 5. Liên hệ / Cuối trang -->
+  <footer class="site-footer" id="lien-he">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <strong>Nhóm Tư Duy Tính Toán</strong>
-        <p>Môn học: Tư duy tính toán &middot; Liên hệ &amp; mã nguồn: <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">github.com/Zoto1/TDTT-miniprj</a></p>
+        <strong>Nhóm 1</strong>
+        <p>Môn học: Tư duy tính toán</p>
+      </div>
+      <div class="footer-contact">
+        <span>Liên hệ &amp; mã nguồn: <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">github.com/Zoto1/TDTT-miniprj</a></span>
+        <a href="https://github.com/Zoto1/TDTT-miniprj/blob/main/docs/REPORT.md" target="_blank" rel="noopener noreferrer">Báo cáo dự án</a>
       </div>
       <div class="footer-links">
-        <a href="docs/REPORT.md">Báo cáo (REPORT.md)</a>
         <a href="members/khanh.html">Khánh</a>
         <a href="members/thu-le.html">Thư Lê</a>
         <a href="members/thu-anh.html">Thư Anh</a>
         <a href="members/thien.html">Thiện</a>
         <a href="members/sand.html">Sand</a>
         <a href="members/zt.html">ZT</a>
+      </div>
+      <div class="footer-bottom">
+        Ảnh minh họa nhóm được tạo bằng AI; sẽ thay bằng ảnh chụp thật của nhóm.
       </div>
     </div>
   </footer>

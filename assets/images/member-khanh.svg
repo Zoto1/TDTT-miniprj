@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-label="Ảnh đại diện Khánh">
-  <rect width="640" height="480" fill="#f0fdfa"/>
-  <circle cx="540" cy="90" r="110" fill="#ccfbf1" opacity="0.7"/>
-  <circle cx="95" cy="400" r="95" fill="#99f6e4" opacity="0.45"/>
-  <circle cx="320" cy="185" r="76" fill="#0f766e"/>
-  <path d="M180 410 C180 315 245 280 320 280 C395 280 460 315 460 410 Z" fill="#0f766e"/>
-  <text x="320" y="198" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="44" font-weight="700">KH</text>
-</svg>
