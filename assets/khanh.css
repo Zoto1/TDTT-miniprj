@@ -345,9 +345,9 @@ p {
 .hero-stage {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   margin: auto;
-  padding: 112px 48px 56px;
+  padding: 108px 48px 48px;
 }
 
 .hero-accent-box {
@@ -394,7 +394,7 @@ p {
 
 .hero-display {
   margin: 0;
-  font-size: clamp(1.85rem, 3.6vw, 3.2rem);
+  font-size: clamp(1.68rem, 3.05vw, 2.7rem);
   font-weight: 300;
   line-height: 1.24;
   letter-spacing: -0.025em;
@@ -1061,8 +1061,8 @@ p {
 
 /* ---------- One-time Scroll Reveal ---------- */
 .js-ready .reveal {
-  opacity: 0;
-  transform: translateY(14px);
+  opacity: 1;
+  transform: none;
   transition: opacity 450ms ease, transform 450ms ease;
 }
 
