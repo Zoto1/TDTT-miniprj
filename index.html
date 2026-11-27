@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhóm Tư Duy Tính Toán - Dự án Git &amp; GitHub</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a class="nav-brand" href="index.html">Nhóm TDTT</a>
+        <ul class="nav-links">
+          <li><a class="active" href="index.html">Trang chủ</a></li>
+          <li><a href="members/khanh.html">Khánh</a></li>
+          <li><a href="members/thu-le.html">Thư Lê</a></li>
+          <li><a href="members/thu-anh.html">Thư Anh</a></li>
+          <li><a href="members/thien.html">Thiện</a></li>
+          <li><a href="members/sand.html">Sand</a></li>
+          <li><a href="members/zt.html">ZT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="badge">Môn Tư duy tính toán &middot; Mini-project Git &amp; GitHub</span>
+      <h1 id="site-title">Website Giới Thiệu Nhóm Tư Duy Tính Toán</h1>
+      <p>
+        Dự án website tĩnh gồm 7 trang HTML (trang chủ và 6 trang cá nhân), được xây dựng nhằm thực hành
+        quy trình quản lý phiên bản bằng Git &amp; GitHub: phân nhánh độc lập, Pull Request, Code Review,
+        xử lý merge conflict, hoàn tác với <code>git revert</code>, gắn tag phát hành và triển khai GitHub Pages.
+      </p>
+    </section>
+
+    <section class="section" id="overview">
+      <h2 class="section-title">Tổng quan dự án</h2>
+      <p class="section-desc">
+        Mỗi thành viên tự phụ trách một tệp HTML riêng trong thư mục <code>members/</code> và phát triển trên
+        feature branch riêng biệt trước khi gửi Pull Request để nhóm review và hợp nhất vào <code>main</code>.
+      </p>
+      <div class="profile-grid">
+        <article class="card">
+          <h3>Cấu trúc website</h3>
+          <ul class="goal-list">
+            <li><strong>Trang chủ (<code>index.html</code>):</strong> Giới thiệu dự án, điều hướng chung và thẻ liên kết đến 6 thành viên.</li>
+            <li><strong>Trang thành viên (<code>members/*.html</code>):</strong> 6 trang cá nhân trình bày giới thiệu, kỹ năng, mục tiêu học tập và ví dụ áp dụng Tư duy tính toán.</li>
+            <li><strong>Style dùng chung (<code>assets/style.css</code>):</strong> Giao diện nhất quán, responsive, không phụ thuộc framework.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Quy trình thực hành Git</h3>
+          <ul class="goal-list">
+            <li>Làm việc theo feature branch, không phát triển trực tiếp trên <code>main</code>.</li>
+            <li>Tạo và review chéo Pull Request giữa các thành viên.</li>
+            <li>Thực hành tạo &amp; giải quyết merge conflict trên <code>#site-title</code> của <code>index.html</code>.</li>
+            <li>Thực hành phát hiện lỗi điều hướng, hoàn tác bằng <code>git revert</code>, gắn tag <code>v1.0.0</code> và viết báo cáo <code>docs/REPORT.md</code>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="members">
+      <h2 class="section-title">Thành viên nhóm (6 thành viên)</h2>
+      <p class="section-desc">Chọn thẻ thành viên bên dưới để xem trang giới thiệu cá nhân và ví dụ Tư duy tính toán.</p>
+
+      <div class="member-grid">
+        <article class="member-card">
+          <div class="member-card-head">
+            <span class="avatar" aria-hidden="true">KH</span>
+            <div>
+              <h3>Khánh</h3>
+              <span class="member-role">Trang chủ &amp; Điều hướng</span>
+            </div>
+          </div>
+          <p>Phụ trách xây dựng nội dung trang chủ <code>index.html</code>, hệ thống điều hướng 7 trang, <code>assets/style.css</code> và trang <code>members/khanh.html</code>.</p>
+          <a class="btn-link" href="members/khanh.html">Xem trang Khánh</a>
+        </article>
+
+        <article class="member-card">
+          <div class="member-card-head">
+            <span class="avatar" aria-hidden="true">TL</span>
+            <div>
+              <h3>Thư Lê</h3>
+              <span class="member-role">Trang cá nhân &amp; Merge Conflict</span>
+            </div>
+          </div>
+          <p>Phụ trách trang <code>members/thu-le.html</code> và tham gia thực hành tình huống tạo, giải quyết merge conflict trên tiêu đề trang chủ.</p>
+          <a class="btn-link" href="members/thu-le.html">Xem trang Thư Lê</a>
+        </article>
+
+        <article class="member-card">
+          <div class="member-card-head">
+            <span class="avatar" aria-hidden="true">TA</span>
+            <div>
+              <h3>Thư Anh</h3>
+              <span class="member-role">Trang cá nhân &amp; Merge Conflict</span>
+            </div>
+          </div>
+          <p>Phụ trách trang <code>members/thu-anh.html</code> và phối hợp tạo, xử lý tình huống merge conflict cùng thành viên nhóm.</p>
+          <a class="btn-link" href="members/thu-anh.html">Xem trang Thư Anh</a>
+        </article>
+
+        <article class="member-card">
+          <div class="member-card-head">
+            <span class="avatar" aria-hidden="true">TH</span>
+            <div>
+              <h3>Thiện</h3>
+              <span class="member-role">Trang cá nhân &amp; Tình huống lỗi</span>
+            </div>
+          </div>
+          <p>Phụ trách trang <code>members/thien.html</code> và tạo commit có liên kết điều hướng sai để nhóm thực hành kiểm tra, hoàn tác.</p>
+          <a class="btn-link" href="members/thien.html">Xem trang Thiện</a>
+        </article>
+
+        <article class="member-card">
+          <div class="member-card-head">
+            <span class="avatar" aria-hidden="true">SA</span>
+            <div>
+              <h3>Sand</h3>
+              <span class="member-role">Trang cá nhân &amp; Git Revert</span>
+            </div>
+          </div>
+          <p>Phụ trách trang <code>members/sand.html</code>, truy vết commit điều hướng sai trong lịch sử Git và thực hành hoàn tác bằng <code>git revert</code>.</p>
+          <a class="btn-link" href="members/sand.html">Xem trang Sand</a>
+        </article>
+
+        <article class="member-card">
+          <div class="member-card-head">
+            <span class="avatar" aria-hidden="true">ZT</span>
+            <div>
+              <h3>ZT</h3>
+              <span class="member-role">Release, Tag &amp; GitHub Pages</span>
+            </div>
+          </div>
+          <p>Khởi tạo cấu trúc repository, phụ trách trang <code>members/zt.html</code>, cập nhật <code>docs/CHANGELOG.md</code>, gắn tag <code>v1.0.0</code> và triển khai GitHub Pages.</p>
+          <a class="btn-link" href="members/zt.html">Xem trang ZT</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Nhóm Tư Duy Tính Toán &middot; Dự án Git &amp; GitHub</span>
+      <div class="footer-links">
+        <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <a href="docs/REPORT.md">Báo cáo dự án (REPORT.md)</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
