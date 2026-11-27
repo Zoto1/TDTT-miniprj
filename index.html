@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhóm 1 - Tư duy tính toán &amp; Đồ án Git</title>
+  <title>Nhóm 1 - Tư duy tính toán &amp; Đồ án nhóm</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -12,56 +12,148 @@
       <nav class="site-nav site-nav--centered" aria-label="Điều hướng chính">
         <ul class="nav-links">
           <li><a class="active" href="#trang-chu">Trang chủ</a></li>
-          <li><a href="#ve-nhom">Về nhóm</a></li>
           <li><a href="#thanh-vien">Thành viên</a></li>
+          <li><a href="#ve-nhom">Về nhóm</a></li>
           <li><a href="#do-an">Đồ án</a></li>
-          <li><a href="#lien-he">Liên hệ</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- 1. Phần mở đầu -->
+    <!-- 1. Phần mở đầu (~2/3 màn hình) -->
     <section class="hero-cover" id="trang-chu">
-      <!-- Thay ảnh chụp chung thật của nhóm tại assets/images/group-hero.jpg -->
+      <!-- Thay ảnh chụp chung thật của 6 thành viên tại assets/images/group-hero.jpg -->
       <img class="hero-bg" src="assets/images/group-hero.jpg" alt="Ảnh chung sáu thành viên Nhóm 1 đang thảo luận">
       <div class="hero-content">
-        <p class="hero-greeting">Xin chào, chúng mình là</p>
-        <h1 id="site-title">Nhóm 1</h1>
-        <p class="hero-subtitle">Website giới thiệu nhóm &middot; Đồ án Git &amp; GitHub</p>
-        <a class="btn btn-hero" href="#thanh-vien">Gặp gỡ 6 thành viên</a>
+        <h1 id="site-title">Chúng mình là Nhóm 1</h1>
+        <p class="hero-lead">Sáu thành viên, sáu màu sắc &mdash; cùng học hỏi và hoàn thành đồ án Tư duy tính toán.</p>
+        <a class="btn btn-hero" href="#thanh-vien">Gặp gỡ chúng mình</a>
       </div>
     </section>
 
-    <!-- 2. Về nhóm -->
+    <!-- 2. Sáu thành viên (3 cột x 2 hàng, không chia phòng ban) -->
+    <section class="section" id="thanh-vien">
+      <div class="container">
+        <div class="members-head">
+          <div>
+            <span class="eyebrow">Thành viên</span>
+            <h2>Sáu thành viên Nhóm 1</h2>
+          </div>
+          <p>Sáu màu sắc riêng cùng góp sức xây dựng sản phẩm chung và rèn luyện quy trình làm việc nhóm.</p>
+        </div>
+
+        <div class="member-grid">
+          <article class="member-card" data-tone="1">
+            <div class="member-photo">
+              <!-- Ảnh thật: thay src thành ảnh chân dung Huy Khánh -->
+              <img src="assets/images/members/khanh.jpg" alt="Huy Khánh">
+            </div>
+            <div class="member-body">
+              <h3>Huy Khánh</h3>
+              <p class="member-personality">Thích giao diện sạch, mạch lạc và luôn muốn mọi thứ chạy gọn ngay từ lần đầu.</p>
+              <p class="member-task">Giao diện Frontend, Schema dữ liệu &amp; Trang chủ nhóm</p>
+              <a class="btn-more" href="members/khanh.html">Tìm hiểu thêm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+
+          <article class="member-card" data-tone="2">
+            <div class="member-photo">
+              <!-- Ảnh thật: thay src thành ảnh chân dung Thư Nguyễn -->
+              <img src="assets/images/members/thu-nguyen.jpg" alt="Thư Nguyễn">
+            </div>
+            <div class="member-body">
+              <h3>Thư Nguyễn</h3>
+              <p class="member-personality">Cẩn thận với từng con số và chi tiết, thích sắp xếp dữ liệu rõ ràng dễ tra cứu.</p>
+              <p class="member-task">Bộ dữ liệu 34 điểm đến Việt Nam &amp; Data Service</p>
+              <a class="btn-more" href="members/thu-anh.html">Tìm hiểu thêm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+
+          <article class="member-card" data-tone="3">
+            <div class="member-photo">
+              <!-- Ảnh thật: thay src thành ảnh chân dung Thư Lê -->
+              <img src="assets/images/members/thu-le.jpg" alt="Thư Lê">
+            </div>
+            <div class="member-body">
+              <h3>Thư Lê</h3>
+              <p class="member-personality">Chú trọng trải nghiệm người dùng, thích biến ý tưởng trên giấy thành màn hình sống động.</p>
+              <p class="member-task">Thiết kế &amp; phát triển giao diện React + Vite</p>
+              <a class="btn-more" href="members/thu-le.html">Tìm hiểu thêm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+
+          <article class="member-card" data-tone="4">
+            <div class="member-photo">
+              <!-- Ảnh thật: thay src thành ảnh chân dung Nhật Hạ -->
+              <img src="assets/images/members/nhat-ha.jpg" alt="Nhật Hạ">
+            </div>
+            <div class="member-body">
+              <h3>Nhật Hạ</h3>
+              <p class="member-personality">Ưa tư duy logic và kiểm chứng chặt chẽ, không để một lịch trình bất khả thi nào lọt qua.</p>
+              <p class="member-task">Thuật toán kiểm chứng chi phí, thời gian &amp; xếp hạng</p>
+              <a class="btn-more" href="members/sand.html">Tìm hiểu thêm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+
+          <article class="member-card" data-tone="5">
+            <div class="member-photo">
+              <!-- Ảnh thật: thay src thành ảnh chân dung Hiếu Thiện -->
+              <img src="assets/images/members/hieu-thien.jpg" alt="Hiếu Thiện">
+            </div>
+            <div class="member-body">
+              <h3>Hiếu Thiện</h3>
+              <p class="member-personality">Hứng thú với AI tạo sinh và cách tinh chỉnh prompt để cho ra kết quả sát thực tế nhất.</p>
+              <p class="member-task">Tích hợp Gemini LLM &amp; sinh lịch trình ứng viên</p>
+              <a class="btn-more" href="members/thien.html">Tìm hiểu thêm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+
+          <article class="member-card" data-tone="6">
+            <div class="member-photo">
+              <!-- Ảnh thật: thay src thành ảnh chân dung Minh Nhật -->
+              <img src="assets/images/members/minh-nhat.jpg" alt="Minh Nhật">
+            </div>
+            <div class="member-body">
+              <h3>Minh Nhật</h3>
+              <p class="member-personality">Thích nhìn tổng thể hệ thống, kết nối các mảnh ghép thành một sản phẩm hoàn chỉnh.</p>
+              <p class="member-task">Kiến trúc Backend FastAPI, API &amp; triển khai sản phẩm</p>
+              <a class="btn-more" href="members/zt.html">Tìm hiểu thêm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Câu chuyện của nhóm -->
     <section class="section band-white" id="ve-nhom">
       <div class="container about">
         <figure class="frame about-photo">
           <img src="assets/images/about-desk.jpg" alt="Góc bàn học và sổ phác thảo lưu đồ của Nhóm 1">
         </figure>
         <div>
-          <h2>Về nhóm</h2>
+          <span class="eyebrow">Về nhóm</span>
+          <h2>Câu chuyện của nhóm</h2>
           <ol class="about-list">
             <li>
               <span class="num">01</span>
               <div>
-                <h3>Lớp học</h3>
-                <p>Môn Tư duy tính toán &mdash; Nhóm 1 gồm 6 sinh viên phối hợp thực hành trên repository chung của nhóm.</p>
+                <h3>Môn học</h3>
+                <p>Nhóm 1 thuộc môn <strong>Tư duy tính toán</strong>, nơi sáu thành viên cùng thực hành phân rã bài toán, thiết kế thuật toán và cộng tác phần mềm.</p>
               </div>
             </li>
             <li>
               <span class="num">02</span>
               <div>
-                <h3>Đồ án</h3>
-                <p>Phát triển ứng dụng <strong>Travel Planning Virtual Assistant</strong> cùng bộ website tĩnh 7 trang quản lý quy trình bằng Git &amp; GitHub.</p>
+                <h3>Vì sao cùng làm dự án này</h3>
+                <p>Từ nhu cầu lên lịch trình du lịch thực tế nhưng hay bị ước lượng sai giờ giấc và chi phí, nhóm chọn kết hợp gợi ý AI với thuật toán kiểm chứng chặt chẽ.</p>
               </div>
             </li>
             <li>
               <span class="num">03</span>
               <div>
                 <h3>Mục tiêu chung</h3>
-                <p>Thành thạo tách nhánh độc lập, Pull Request, review chéo, giải quyết merge conflict, <code>git revert</code> và xuất bản GitHub Pages.</p>
+                <p>Hoàn thiện sản phẩm chạy ổn định, đồng thời rèn luyện quy trình Git &amp; GitHub chuẩn: phát triển trên nhánh riêng, mở Pull Request, review chéo, giải quyết merge conflict và gắn tag phát hành.</p>
               </div>
             </li>
           </ol>
@@ -69,140 +161,56 @@
       </div>
     </section>
 
-    <!-- 3. Thành viên (3 cột x 2 hàng, không chia phòng ban) -->
-    <section class="section" id="thanh-vien">
-      <div class="container">
-        <div class="members-head">
-          <div>
-            <span class="eyebrow">Thành viên</span>
-            <h2>Gặp gỡ 6 thành viên</h2>
-          </div>
-          <p>Mỗi thành viên phụ trách một trang riêng và cùng nhau thực hành quy trình Git &amp; GitHub.</p>
-        </div>
-
-        <div class="member-grid">
-          <article class="member-card">
-            <div class="member-photo" data-tone="1">
-              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/khanh.jpg" alt="Huy Khánh"> -->
-              <span class="monogram" aria-hidden="true">HK</span>
-            </div>
-            <div class="member-body">
-              <h3>Huy Khánh</h3>
-              <p class="member-bio">Phụ trách giao diện trang chủ, hệ thống điều hướng dùng chung và trang cá nhân.</p>
-              <a class="btn-outline" href="members/khanh.html">Xem giới thiệu</a>
-            </div>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo" data-tone="2">
-              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/thu-anh.jpg" alt="Thư Nguyễn"> -->
-              <span class="monogram" aria-hidden="true">TN</span>
-            </div>
-            <div class="member-body">
-              <h3>Thư Nguyễn</h3>
-              <p class="member-bio">Hoàn thiện trang cá nhân và phối hợp xử lý, kiểm thử website sau khi giải quyết merge conflict.</p>
-              <a class="btn-outline" href="members/thu-anh.html">Xem giới thiệu</a>
-            </div>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo" data-tone="3">
-              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/thu-le.jpg" alt="Thư Lê"> -->
-              <span class="monogram" aria-hidden="true">TL</span>
-            </div>
-            <div class="member-body">
-              <h3>Thư Lê</h3>
-              <p class="member-bio">Xây dựng trang giới thiệu cá nhân và tham gia bài thực hành xung đột tiêu đề trang chủ.</p>
-              <a class="btn-outline" href="members/thu-le.html">Xem giới thiệu</a>
-            </div>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo" data-tone="4">
-              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/sand.jpg" alt="Nhật Hạ"> -->
-              <span class="monogram" aria-hidden="true">NH</span>
-            </div>
-            <div class="member-body">
-              <h3>Nhật Hạ</h3>
-              <p class="member-bio">Phụ trách trang cá nhân, truy vết commit lỗi trong lịch sử và hoàn tác an toàn bằng <code>git revert</code>.</p>
-              <a class="btn-outline" href="members/sand.html">Xem giới thiệu</a>
-            </div>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo" data-tone="5">
-              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/thien.jpg" alt="Hiếu Thiện"> -->
-              <span class="monogram" aria-hidden="true">HT</span>
-            </div>
-            <div class="member-body">
-              <h3>Hiếu Thiện</h3>
-              <p class="member-bio">Phát triển trang cá nhân và tạo tình huống commit điều hướng lỗi qua Pull Request để nhóm thực hành.</p>
-              <a class="btn-outline" href="members/thien.html">Xem giới thiệu</a>
-            </div>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo" data-tone="6">
-              <!-- Ảnh thật: thay span bằng <img src="assets/images/members/zt.jpg" alt="Minh Nhật"> -->
-              <span class="monogram" aria-hidden="true">MN</span>
-            </div>
-            <div class="member-body">
-              <h3>Minh Nhật</h3>
-              <p class="member-bio">Khởi tạo repository, xây dựng trang cá nhân, cập nhật changelog, gắn tag phát hành và bật GitHub Pages.</p>
-              <a class="btn-outline" href="members/zt.html">Xem giới thiệu</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Đồ án của nhóm -->
+    <!-- 4. Đồ án chung (nền tối tương phản) -->
     <section class="section band-ink" id="do-an">
       <div class="container">
         <div class="project-top">
           <div>
-            <span class="eyebrow">Đồ án</span>
+            <span class="eyebrow">Đồ án chung</span>
             <h2>Travel Planning Virtual Assistant</h2>
           </div>
           <div>
             <p>
-              Trợ lý lập kế hoạch du lịch Việt Nam do 6 thành viên Nhóm 1 phát triển: thu thập nhu cầu chuyến đi, kết hợp
-              LLM sinh lịch trình ứng viên và kiểm chứng chi phí, thời gian, quãng đường bằng thuật toán tất định.
+              Trợ lý lập kế hoạch du lịch Việt Nam giúp người dùng nhập ngày đi, ngân sách và nhịp độ mong muốn; hệ thống
+              sinh lịch trình ứng viên bằng LLM rồi kiểm chứng chi phí, thời gian và quãng đường bằng thuật toán tất định.
             </p>
             <ul class="project-facts">
-              <li>React + Vite UI</li>
-              <li>FastAPI Backend</li>
-              <li>Gemini LLM &amp; Kiểm chứng</li>
-              <li>34 điểm đến Việt Nam</li>
+              <li>React + Vite</li>
+              <li>FastAPI</li>
+              <li>Gemini LLM</li>
+              <li>Thuật toán kiểm chứng</li>
             </ul>
+            <div class="project-actions">
+              <!-- Nếu có link demo triển khai công khai, bỏ comment dòng dưới -->
+              <!-- <a class="btn btn-light" href="#" target="_blank" rel="noopener noreferrer">Xem sản phẩm</a> -->
+              <a class="btn btn-light" href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
           </div>
         </div>
 
         <div class="project-gallery">
-          <figure class="frame shot-site">
-            <img src="assets/images/project-travel-welcome.png" alt="Giao diện giới thiệu ứng dụng Travel Planning Virtual Assistant">
-          </figure>
-          <figure class="frame shot-github">
-            <img src="assets/images/project-travel-planner.png" alt="Giao diện biểu mẫu lập kế hoạch chuyến đi">
+          <figure class="frame shot-desktop">
+            <img src="assets/images/project-travel-welcome.png" alt="Giao diện máy tính của ứng dụng Travel Planning Virtual Assistant">
           </figure>
           <figure class="frame shot-phone">
-            <img src="assets/images/project-travel-mobile.png" alt="Giao diện Travel Assistant trên màn hình điện thoại">
+            <img src="assets/images/project-travel-mobile.png" alt="Giao diện điện thoại của ứng dụng Travel Planning Virtual Assistant">
           </figure>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 5. Liên hệ / Cuối trang -->
-  <footer class="site-footer" id="lien-he">
+  <!-- 5. Cuối trang -->
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
         <strong>Nhóm 1</strong>
         <p>Môn học: Tư duy tính toán</p>
       </div>
       <div class="footer-contact">
-        <span>Liên hệ &amp; mã nguồn: <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">github.com/Zoto1/TDTT-miniprj</a></span>
+        <a href="https://github.com/Zoto1/TDTT-miniprj" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
         <a href="https://github.com/Zoto1/TDTT-miniprj/blob/main/docs/REPORT.md" target="_blank" rel="noopener noreferrer">Báo cáo dự án</a>
+        <a class="back-to-top" href="#trang-chu">&uarr; Về đầu trang</a>
       </div>
       <div class="footer-links">
         <a href="members/khanh.html">Huy Khánh</a>
