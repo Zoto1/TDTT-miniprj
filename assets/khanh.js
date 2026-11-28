@@ -179,7 +179,7 @@
           layer.style.zIndex = '2';
           layer.style.visibility = 'visible';
           layer.style.pointerEvents = morphT >= 0.5 ? 'auto' : 'none';
-          layer.style.opacity = Math.min(1, 0.25 + eased * 1.4).toFixed(3);
+          layer.style.opacity = '1';
           layer.style.transform = `scale(${(1.03 - 0.03 * eased).toFixed(4)})`;
           layer.style.clipPath = `circle(${morphRadius}% at 85% 50%)`;
           if (inner) inner.style.transform = 'translate3d(0, 0, 0)';
