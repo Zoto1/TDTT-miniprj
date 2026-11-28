@@ -13,3 +13,6 @@ Desktop.ini
 *.log
 *.tmp
 node_modules/
+
+# Personal portfolio backup
+personal-backup/
