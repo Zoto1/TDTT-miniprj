@@ -1,13 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cherry+Bomb+One&family=Italianno&family=Jersey+25&display=swap");
 
-:root {
-  --pink: #f178b6;
-  --red: #ec5d5d;
-  --purple: #4a1350;
-  --paper: url("TLimages/paper.png");
-  --u: 0.0694444cqw;
-}
-
+:root { --u: 0.0694444cqw; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { overflow-x: hidden; }
 body { background: #ddd; }
@@ -16,51 +9,20 @@ body { background: #ddd; }
   container-type: inline-size;
   position: relative;
   width: min(100%, 1440px);
-  aspect-ratio: 1440 / 5884;
+  aspect-ratio: 1440 / 4180;
   margin-inline: auto;
   background: #fff;
   overflow: hidden;
 }
-
-.abs {
-  position: absolute;
-  left: calc(var(--x) * var(--u));
-  top: calc(var(--y) * var(--u));
-  width: calc(var(--w) * var(--u));
-  height: calc(var(--h) * var(--u));
+.box, .txt, .pic, .bgwrap { position: absolute; left: calc(var(--x)*var(--u)); top: calc(var(--y)*var(--u)); width: calc(var(--w)*var(--u)); height: calc(var(--h)*var(--u)); }
+.box { background: var(--bg); transform: rotate(var(--r,0deg)); }
+.pic { display: block; object-fit: cover; transform: rotate(var(--r,0deg)); }
+.txt {
+  font-family: var(--ff); font-size: calc(var(--fs)*var(--u)); line-height: calc(var(--lh)*var(--u));
+  color: var(--color); text-align: var(--align); white-space: pre-wrap; overflow-wrap: break-word;
 }
-
-.bg-wrap { display: flex; align-items: center; justify-content: center; }
-.bg-wrap > .rot {
-  flex: none;
-  width: calc(var(--h) * var(--u));
-  height: calc(var(--w) * var(--u));
-  transform: rotate(89.87deg);
-}
-.bg { width: 100%; height: 100%; background-size: cover; background-position: center; }
-.bg.paper { background-image: var(--paper); }
-.bg.blue {
-  background-image: linear-gradient(rgba(144, 173, 199, .2), rgba(144, 173, 199, .2)), var(--paper);
-}
-
-.t {
-  position: absolute;
-  left: calc(var(--x) * var(--u));
-  top: calc(var(--y) * var(--u));
-  width: calc(var(--w) * var(--u));
-  line-height: normal;
-  overflow-wrap: break-word;
-}
-.about { font-family: 'Italianno', cursive; color: var(--pink); font-size: calc(150 * var(--u)); text-wrap: balance; }
-.name { font-family: 'Jersey 25', sans-serif; color: var(--red); font-size: calc(128 * var(--u)); text-wrap: balance; }
-.num { font-family: 'Architects Daughter', cursive; color: var(--purple); font-size: calc(var(--fs, 112) * var(--u)); font-variant-numeric: tabular-nums; }
-.fact { font-family: 'Cherry Bomb One', 'Cherry Bomb', sans-serif; color: #000; font-size: calc(54 * var(--u)); line-height: 1.05; }
-
-.sticker { position: absolute; display: flex; align-items: center; justify-content: center; }
-.sticker > img {
-  display: block;
-  width: calc(var(--w) * var(--u));
-  height: calc(var(--h) * var(--u));
-  object-fit: cover;
-  transform: rotate(var(--r, 0deg));
-}
+.bgwrap { display: flex; align-items: center; justify-content: center; }
+.bgwrap > .bgrot { flex: none; width: calc(var(--h)*var(--u)); height: calc(var(--w)*var(--u)); transform: rotate(89.87deg); }
+.bgimg { width: 100%; height: 100%; background-image: var(--img); background-size: cover; background-position: center; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 8px; top: 8px; z-index: 9; background: #fff; padding: 8px; }
