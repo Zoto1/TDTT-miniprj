@@ -18,8 +18,22 @@ body { background: #ddd; }
   overflow: hidden;
 }
 .box, .txt, .pic, .bgwrap { position: absolute; left: calc(var(--x)*var(--u)); top: calc(var(--y)*var(--u)); width: calc(var(--w)*var(--u)); height: calc(var(--h)*var(--u)); }
-.box { background: var(--bg); border-radius: calc(var(--br,0)*var(--u)); transform: rotate(var(--r,0deg)); }
+.box { background: var(--bg); background-size: cover; background-position: center; border-radius: calc(var(--br,0)*var(--u)); transform: rotate(var(--r,0deg)); }
 .pic { display: block; object-fit: cover; transform: rotate(var(--r,0deg)); }
+.logo { object-fit: contain; }
+.intro { animation: intro-in .8s ease-out both; animation-delay: var(--delay,0s); }
+.hero-img { animation: star-out .9s cubic-bezier(.2,.7,.3,1) both; animation-delay: var(--delay,0s); }
+@keyframes intro-in {
+  from { opacity: 0; transform: translateY(calc(24*var(--u))); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes star-out {
+  from { opacity: 0; transform: translate(calc(var(--fx)*var(--u)), calc(var(--fy)*var(--u))) scale(.15) rotate(var(--r,0deg)); }
+  to { opacity: 1; transform: translate(0,0) scale(1) rotate(var(--r,0deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro, .hero-img { animation: none; opacity: 1; transform: rotate(var(--r,0deg)); }
+}
 .txt {
   font-family: var(--ff); font-size: calc(var(--fs)*var(--u)); line-height: calc(var(--lh)*var(--u));
   color: var(--color); text-align: var(--align); white-space: pre-wrap; overflow-wrap: break-word;
