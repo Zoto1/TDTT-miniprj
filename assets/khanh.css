@@ -538,6 +538,7 @@ html.stage-active .stage-rail {
 
 .hero-bottom-band {
   width: 100%;
+  min-height: 92px;
   padding: 28px 24px 38px;
   display: flex;
   justify-content: center;
@@ -549,25 +550,49 @@ html.stage-active .stage-rail {
   );
 }
 
-.hero-scroll-arrow {
+.stage-scroll-arrow {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 34;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
+  border: 1px solid rgba(231, 231, 237, 0.85);
+  background-color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(20, 20, 92, 0.08);
   color: var(--primary);
-  transition: color 180ms ease, background-color 180ms ease;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, color 180ms ease, background-color 180ms ease;
 }
 
-.hero-scroll-arrow:hover,
-.hero-scroll-arrow:focus-visible {
+html.stage-active .stage-scroll-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 26;
+}
+
+.stage-scroll-arrow.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stage-scroll-arrow:hover,
+.stage-scroll-arrow:focus-visible {
   color: var(--primary-mid);
-  background-color: rgba(77, 85, 184, 0.08);
-  text-decoration: none;
+  background-color: #ffffff;
 }
 
-.hero-scroll-arrow svg {
+.stage-scroll-arrow svg {
   animation: arrowBounce 1.5s ease-in-out infinite;
 }
 
@@ -577,7 +602,7 @@ html.stage-active .stage-rail {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(7px);
+    transform: translateY(6px);
   }
 }
 
@@ -593,17 +618,12 @@ html.stage-active .stage-rail {
 }
 
 .code-lines,
-.hero-tagline,
-.hero-scroll-arrow {
+.hero-tagline {
   animation: enterUp 500ms ease both;
 }
 
 .hero-tagline {
   animation-delay: 80ms;
-}
-
-.hero-scroll-arrow {
-  animation-delay: 140ms;
 }
 
 /* ---------- Sections (Default Flow Mode) ---------- */
@@ -1339,7 +1359,8 @@ html.stage-active .stage-rail {
 
   .scroll-track,
   .stage-hud,
-  .stage-rail {
+  .stage-rail,
+  .stage-scroll-arrow {
     display: none !important;
   }
 

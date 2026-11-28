@@ -41,6 +41,7 @@
   const hudFill = document.querySelector('[data-stage-fill]');
   const stageDot = document.querySelector('[data-stage-dot]');
   const scrollTopBtn = document.querySelector('[data-scroll-top]');
+  const stageNextBtn = document.querySelector('[data-stage-next]');
 
   const LERP = 0.09;
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
@@ -207,6 +208,9 @@
     if (scrollTopBtn) {
       scrollTopBtn.classList.toggle('is-visible', smoothProgress > 0.05);
     }
+    if (stageNextBtn) {
+      stageNextBtn.classList.toggle('is-visible', activeIndex < stageLayers.length - 1);
+    }
 
     debugState = {
       stageActive: true,
@@ -290,14 +294,20 @@
 
     const probeY = window.scrollY + Math.min(140, (window.innerHeight || 844) * 0.25);
     let current = stageLayers[0];
+    let currentIdx = 0;
     for (let i = stageLayers.length - 1; i >= 0; i -= 1) {
       const top = stageLayers[i].getBoundingClientRect().top + window.scrollY;
       if (probeY >= top - 4) {
         current = stageLayers[i];
+        currentIdx = i;
         break;
       }
     }
     if (current) setActiveNav(current.id);
+    if (stageNextBtn) {
+      const atDocEnd = window.scrollY + (window.innerHeight || 844) >= document.documentElement.scrollHeight - 24;
+      stageNextBtn.classList.toggle('is-visible', currentIdx < stageLayers.length - 1 && !atDocEnd);
+    }
   }
 
   /* ---------- Scroll & Resize Listeners ---------- */
@@ -374,6 +384,32 @@
       } else {
         window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
         setActiveNav('gioi-thieu');
+      }
+    });
+  }
+
+  if (stageNextBtn) {
+    stageNextBtn.addEventListener('click', () => {
+      if (stageActive && segments.length) {
+        const nextIdx = Math.min(debugState.activeIndex + 1, segments.length - 1);
+        const top = segments[nextIdx].startY;
+        window.scrollTo({ top, behavior: 'auto' });
+        targetY = top;
+      } else {
+        const probeY = window.scrollY + Math.min(140, (window.innerHeight || 844) * 0.25);
+        let curIdx = 0;
+        for (let i = stageLayers.length - 1; i >= 0; i -= 1) {
+          const top = stageLayers[i].getBoundingClientRect().top + window.scrollY;
+          if (probeY >= top - 4) {
+            curIdx = i;
+            break;
+          }
+        }
+        const nextSec = stageLayers[Math.min(curIdx + 1, stageLayers.length - 1)];
+        if (nextSec) {
+          nextSec.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+          setActiveNav(nextSec.id);
+        }
       }
     });
   }
