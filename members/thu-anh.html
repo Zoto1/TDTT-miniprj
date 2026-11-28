@@ -3,9 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thư Anh</title>
   <link rel="stylesheet" href="../assets/style.css">
   <style>
+    .contact-section {
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .contact-action {
+      display: inline-grid;
+      place-items: center;
+      box-sizing: border-box;
+      width: 64px;
+      height: 64px;
+      padding: 0;
+      border: 1px solid #ccdff0;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #e2effb;
+      color: #123a63;
+      font: bold 1rem Arial, sans-serif;
+      text-decoration: none;
+    }
+
+    .contact-action img {
+      --icon-scale: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(var(--icon-scale));
+    }
+
+    .contact-action img.contact-icon-facebook {
+      --icon-scale: 1.5;
+    }
+
+    .contact-action img.contact-icon-phone {
+      --icon-scale: 1.25;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .contact-action:is(:hover, :focus-visible) img {
+        transform: scale(calc(var(--icon-scale) * 1.12));
+        transition: transform 180ms ease;
+        animation: contact-glow 480ms ease-out;
+      }
+
+      @keyframes contact-glow {
+        50% {
+          filter: brightness(1.25);
+        }
+      }
+    }
+
+    button.contact-action {
+      cursor: pointer;
+    }
+
+    .contact-action:hover,
+    .contact-action:focus-visible {
+      background: #123a63;
+      color: white;
+    }
+
     body {
       background-color: #f7fbff;
       font-family: Arial, sans-serif;
@@ -18,10 +86,6 @@
     main p {
       font-size: 1rem;
       line-height: 1.6;
-    }
-
-    .introduction h1 {
-      color: #123a63;
     }
 
     main h2 {
@@ -117,6 +181,7 @@
     }
 
     .interest-card {
+      position: relative;
       background-color: white;
       padding: 25px 15px;
       border: 1px solid #ccdff0;
@@ -125,10 +190,23 @@
       transition: all 0.3s ease;
     }
 
-    .interest-icon {
+    .interest-preview {
+      position: absolute;
+      inset: 0;
       display: block;
-      font-size: 38px;
-      margin-bottom: 12px;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #f5faff;
+      object-fit: contain;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) {
+      .interest-card:hover .interest-preview {
+        opacity: 1;
+      }
     }
 
     .interest-card h3 {
@@ -186,8 +264,6 @@
       max-width: 750px;
       margin: auto;
     }
-
-    /* Đường nối giữa các biểu tượng */
     .journey-timeline::before {
       content: "";
       position: absolute;
@@ -252,8 +328,6 @@
       color: #384f66;
       margin: 0;
     }
-
-    /* Hiệu ứng khi di chuột */
     .journey-item:hover .journey-content {
       transform: translateX(5px);
       background: #e2effb;
@@ -263,8 +337,6 @@
     .journey-item:hover .journey-icon {
       transform: scale(1.12) rotate(-8deg);
     }
-
-    /* Giao diện điện thoại */
     @media (max-width: 600px) {
       .learning-journey {
         padding: 25px 15px;
@@ -296,16 +368,13 @@
 </head>
 <body>
   <main>
-    <div class="introduction">
-      <h1>Thư Anh</h1>
-    </div>
     <section class="about-card" aria-labelledby="about-title">
       <div>
         <h2 id="about-title"> Giới thiệu bản thân</h2>
-        <p>Xin chào, mình là Thư Anh, hiện đang là sinh viên năm hai ngành Công nghệ thông tin.</p>
+        <p>Xin chào, mình là Thư Anh, hiện đang là sinh viên năm hai ngành Công nghệ thông tin của trường Đại học Khoa học Tự nhiên.</p>
         <p>Mình thích khám phá những điều mới mẻ, tìm hiểu những kiến thức thú vị và lắng nghe những góc nhìn khác nhau của mọi người về thế giới xung quanh.</p>
       </div>
-      <img src="fox.png" alt="Hình minh họa chú cáo">
+      <img src="thuanh_images/fox.png" alt="Hình minh họa chú cáo">
     </section>
     <section class="interests" aria-labelledby="interests-title">
       <h2 id="interests-title">Sở thích cá nhân</h2>
@@ -314,66 +383,65 @@
 
       <div class="interest-grid">
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/book.png" alt="">
           <h3>Reading</h3>
           <p>Đọc sách</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/film.png" alt="">
           <h3>Movies</h3>
           <p>Xem phim</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/music.png" alt="">
           <h3>Music</h3>
           <p>Nghe nhạc</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/%C4%91i%20d%E1%BA%A1o.png" alt="">
           <h3>Walking</h3>
           <p>Đi dạo</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/t%C3%A2m%20linh.png" alt="">
           <h3>Spirituality</h3>
           <p>Tìm hiểu tâm linh</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/tuvi.png" alt="">
           <h3>Astrology</h3>
           <p>Tìm hiểu tử vi</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/AI.png" alt="">
           <h3>AI &amp; Technology</h3>
           <p>Khám phá công nghệ AI</p>
         </div>
 
         <div class="interest-card">
-          <span class="interest-icon"></span>
+          <img class="interest-preview" src="thuanh_images/kh%C3%A1m%20ph%C3%A1.png" alt="">
           <h3>Exploration</h3>
           <p>Tìm hiểu những chủ đề mới lạ</p>
         </div>
       </div>
     </section>
     <section class="learning-goals-card" aria-labelledby="learning-title">
-      <h2 id="learning-title">My Learning Goals – Mục tiêu học tập</h2>
+      <h2 id="learning-title">Mục tiêu học tập</h2>
       <p>Mình mong muốn học thêm những điều mới mà không quên đi những kiến thức cũ. Đối với mình, học tập không chỉ vì điểm số mà còn là cơ hội để mở rộng hiểu biết và khám phá những điều bản thân chưa biết.</p>
       <p>Mình muốn tiến bộ theo nhịp độ của riêng mình, không ngừng học hỏi và cố gắng từng chút một mỗi ngày.</p>
     </section>
     <section class="learning-journey">
-      <h2>My Learning Journey</h2>
-      <p class="journey-subtitle">Little by little, day by day.</p>
+      <h2>Little by little, day by day</h2>
 
       <div class="journey-timeline">
         <div class="journey-item">
-          <div class="journey-icon"><img src="tree.png" alt=""></div>
+          <div class="journey-icon"><img src="thuanh_images/tree.png" alt=""></div>
           <div class="journey-content">
             <h3>Keep My Roots</h3>
             <p>Ôn tập và củng cố những kiến thức đã học.</p>
@@ -381,7 +449,7 @@
         </div>
 
         <div class="journey-item">
-          <div class="journey-icon"><img src="tree.png" alt=""></div>
+          <div class="journey-icon"><img src="thuanh_images/tree.png" alt=""></div>
           <div class="journey-content">
             <h3>Stay Curious</h3>
             <p>Không ngừng khám phá những kiến thức mới.</p>
@@ -389,7 +457,7 @@
         </div>
 
         <div class="journey-item">
-          <div class="journey-icon"><img src="tree.png" alt=""></div>
+          <div class="journey-icon"><img src="thuanh_images/tree.png" alt=""></div>
           <div class="journey-content">
             <h3>Grow at My Own Pace</h3>
             <p>Kiên trì cố gắng và tiến bộ theo nhịp độ của riêng mình.</p>
@@ -397,7 +465,7 @@
         </div>
 
         <div class="journey-item">
-          <div class="journey-icon"><img src="tree.png" alt=""></div>
+          <div class="journey-icon"><img src="thuanh_images/tree.png" alt=""></div>
           <div class="journey-content">
             <h3>Become Better</h3>
             <p>Hoàn thiện bản thân từng chút một mỗi ngày.</p>
@@ -405,6 +473,31 @@
         </div>
       </div>
     </section>
+    <section class="contact-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Liên hệ</h2>
+      <div class="contact-actions">
+        <a class="contact-action" href="https://www.facebook.com/anhhthuu.nn" aria-label="Facebook">
+          <img class="contact-icon-facebook" src="thuanh_images/fb.png" alt="">
+        </a>
+        <a class="contact-action" href="https://www.instagram.com/auhthum_n" aria-label="Instagram">
+          <img src="thuanh_images/ig.png" alt="">
+        </a>
+        <button class="contact-action" type="button" aria-label="Số điện thoại"
+                aria-controls="contact-phone" aria-expanded="false">
+          <img class="contact-icon-phone" src="thuanh_images/phone.png" alt="">
+        </button>
+      </div>
+      <p id="contact-phone" hidden>0944280827</p>
+    </section>
   </main>
+  <script>
+    const phoneButton = document.querySelector('[aria-controls="contact-phone"]');
+    const phoneDetails = document.getElementById('contact-phone');
+
+    phoneButton.addEventListener('click', () => {
+      phoneDetails.hidden = !phoneDetails.hidden;
+      phoneButton.setAttribute('aria-expanded', String(!phoneDetails.hidden));
+    });
+  </script>
 </body>
 </html>
