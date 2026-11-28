@@ -100,7 +100,7 @@
     <!-- Nội dung chính -->
     <main class="main-content">
       <!-- 1. Hero -->
-      <section class="hero-section" id="gioi-thieu">
+      <section class="hero-section" id="gioi-thieu" data-section>
         <a class="hero-top-cta" href="#lien-he">
           <span>Liên hệ với mình</span>
           <span class="hero-top-arrow" aria-hidden="true">&rarr;</span>
@@ -116,11 +116,7 @@
             </div>
             <div class="code-line">
               <span class="line-num">02</span>
-              <p class="hero-display"><span class="angle">&lt;</span> Mình biến <span class="highlight">ý tưởng thực tế</span></p>
-            </div>
-            <div class="code-line">
-              <span class="line-num">03</span>
-              <p class="hero-display"><span class="line-num-indent">thành <span class="highlight">sản phẩm chạy thật.</span> <span class="angle">&gt;</span></span></p>
+              <p class="hero-display"><span class="angle">&lt;</span> <span class="highlight">HCMUS Student.</span> <span class="angle">&gt;</span></p>
             </div>
           </div>
 
@@ -139,7 +135,7 @@
 
       <div class="page-wrap">
         <!-- 2. Dự án chọn lọc -->
-        <section class="content-section reveal" id="du-an">
+        <section class="content-section reveal" data-section id="du-an">
           <span class="section-kicker">Dự án chọn lọc</span>
           <h2 class="section-heading">Một vài dự án mình đã nghiên cứu và xây dựng</h2>
           <p class="section-intro">
@@ -274,7 +270,7 @@
         </section>
 
         <!-- 3. Về mình -->
-        <section class="content-section reveal" id="ve-minh">
+        <section class="content-section reveal" data-section id="ve-minh">
           <span class="section-kicker">Về mình</span>
           <h2 class="section-heading">Cách mình học và làm sản phẩm</h2>
 
@@ -338,7 +334,7 @@
         </section>
 
         <!-- 4. Kỹ năng (3 nhóm gọn khớp CV) -->
-        <section class="content-section reveal" id="ky-nang">
+        <section class="content-section reveal" data-section id="ky-nang">
           <span class="section-kicker">Kỹ năng</span>
           <h2 class="section-heading">Năng lực chính &amp; công cụ sử dụng</h2>
           <p class="section-intro">
@@ -403,7 +399,7 @@
         </section>
 
         <!-- 5. Liên hệ & Cuối trang -->
-        <section class="content-section reveal" id="lien-he">
+        <section class="content-section reveal" data-section id="lien-he">
           <span class="section-kicker">Liên hệ</span>
           <h2 class="section-heading">Kết nối với mình</h2>
           <p class="section-intro">
@@ -455,5 +451,9 @@
       </div>
     </main>
   </div>
+
+  <button type="button" class="scroll-top-btn" data-scroll-top aria-label="Lên đầu trang" title="Lên đầu trang">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
 </body>
 </html>

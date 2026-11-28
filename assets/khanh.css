@@ -1122,6 +1122,80 @@ p {
   color: var(--muted);
 }
 
+/* ---------- Controlled Section Transitions & Floating Back-to-Top ---------- */
+html.is-section-transitioning {
+  scroll-behavior: auto;
+}
+
+[data-section] {
+  transition: opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+[data-section].is-leaving {
+  opacity: 0.48;
+  transform: scale(0.986);
+}
+
+[data-section].is-entering-down > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: none;
+}
+
+[data-section].is-entering-up > * {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: none;
+}
+
+[data-section].is-entering-active > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 560ms cubic-bezier(0.22, 1, 0.36, 1), transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-section].is-entering-active > *:nth-child(1) { transition-delay: 0ms; }
+[data-section].is-entering-active > *:nth-child(2) { transition-delay: 65ms; }
+[data-section].is-entering-active > *:nth-child(3) { transition-delay: 130ms; }
+[data-section].is-entering-active > *:nth-child(4) { transition-delay: 195ms; }
+[data-section].is-entering-active > *:nth-child(5) { transition-delay: 260ms; }
+[data-section].is-entering-active > *:nth-child(6) { transition-delay: 325ms; }
+
+.scroll-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(20, 20, 92, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease, background-color 180ms ease;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top-btn:hover,
+.scroll-top-btn:focus-visible {
+  background-color: var(--primary-mid);
+  transform: translateY(-2px);
+}
+
 /* ---------- Scroll Reveal (safe non-clipping) ---------- */
 .js-ready .reveal {
   opacity: 1;
@@ -1136,6 +1210,16 @@ p {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .mobile-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 450ms ease, transform 450ms ease;
+  }
+
+  .mobile-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
   .sidebar {
     display: none;
   }
@@ -1194,6 +1278,13 @@ p {
 }
 
 @media (max-width: 640px) {
+  .scroll-top-btn {
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
+
   .project-showcase-card,
   .project-card {
     padding: 20px;
@@ -1222,8 +1313,12 @@ p {
     scroll-behavior: auto !important;
   }
 
-  .js-ready .reveal {
-    opacity: 1;
-    transform: none;
+  .js-ready .reveal,
+  [data-section],
+  [data-section] > *,
+  .mobile-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
