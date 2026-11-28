@@ -32,13 +32,38 @@
     });
   }
 
-  /* ---------- Sections & Active Nav ---------- */
-  const SECTION_IDS = ['gioi-thieu', 'du-an', 've-minh', 'ky-nang', 'lien-he'];
-  const sections = SECTION_IDS
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
+  /* ---------- Shared DOM Refs ---------- */
+  const scrollTrack = document.getElementById('scroll-track');
+  const stageLayers = Array.from(document.querySelectorAll('[data-stage-layer]'));
+  const layerInners = stageLayers.map((layer) => layer.querySelector('.stage-layer-inner'));
   const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+  const hudLabel = document.querySelector('[data-stage-label]');
+  const hudFill = document.querySelector('[data-stage-fill]');
+  const stageDot = document.querySelector('[data-stage-dot]');
   const scrollTopBtn = document.querySelector('[data-scroll-top]');
+
+  const LERP = 0.09;
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+  let stageActive = false;
+  let segments = [];
+  let totalScroll = 0;
+  let smoothY = 0;
+  let targetY = 0;
+  let rafId = 0;
+
+  let debugState = {
+    stageActive: false,
+    smoothY: 0,
+    targetY: 0,
+    smoothProgress: 0,
+    activeIndex: 0,
+    activePhase: 1,
+    morphT: 0,
+    morphRadius: 0,
+    totalScroll: 0,
+    segments: []
+  };
 
   function setActiveNav(id) {
     navLinks.forEach((link) => {
@@ -46,211 +71,296 @@
     });
   }
 
-  function isDesktopControlled() {
+  function isStageEligible() {
     if (reducedMotion || window.innerWidth < 960) return false;
     if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return false;
-    return true;
+    return Boolean(scrollTrack && stageLayers.length);
   }
 
-  /* ---------- Controlled Section Transition Engine ---------- */
-  const DURATION = 680;
-  const LOCK_BUFFER = 160;
-  const EDGE_EPS = 4;
-  const WHEEL_THRESHOLD = 20;
-
-  let isTransitioning = false;
-  let rafId = 0;
-  let unlockTimer = 0;
-  let cleanupTimer = 0;
-  let wheelAccum = 0;
-  let wheelResetTimer = 0;
-
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
-
-  function getSectionBounds(sec) {
-    const rect = sec.getBoundingClientRect();
-    const top = rect.top + window.scrollY;
-    return { top, bottom: top + sec.offsetHeight, rect };
-  }
-
-  function getCurrentSectionIndex() {
-    if (!sections.length) return 0;
+  function measureSegments() {
+    if (!stageActive) return;
     const vh = window.innerHeight || 900;
-    const docHeight = document.documentElement.scrollHeight;
-    if (window.scrollY + vh >= docHeight - EDGE_EPS) {
-      return sections.length - 1;
-    }
+    let cursor = 0;
 
-    const probeY = window.scrollY + Math.min(140, vh * 0.25);
-    for (let i = sections.length - 1; i >= 0; i -= 1) {
-      const top = sections[i].getBoundingClientRect().top + window.scrollY;
-      if (probeY >= top - EDGE_EPS) return i;
-    }
-    return 0;
-  }
+    segments = stageLayers.map((layer, index) => {
+      const inner = layerInners[index];
+      const contentH = inner ? inner.scrollHeight : vh;
+      const overflow = Math.max(0, Math.ceil(contentH - vh));
+      const dwell = Math.round(vh * (overflow > 0 ? 0.14 : 0.24));
+      const phase1Px = overflow + dwell;
+      const phase2Px = index < stageLayers.length - 1 ? Math.round(vh * 0.78) : 0;
 
-  function updateScrollTopBtn() {
-    if (!scrollTopBtn) return;
-    const heroHeight = sections[0] ? sections[0].offsetHeight : 640;
-    const threshold = Math.min(360, heroHeight * 0.55);
-    scrollTopBtn.classList.toggle('is-visible', window.scrollY > threshold);
-  }
+      const startY = cursor;
+      const phase1EndY = startY + phase1Px;
+      const endY = phase1EndY + phase2Px;
+      cursor = endY;
 
-  function clearSectionAnimClasses() {
-    sections.forEach((sec) => {
-      sec.classList.remove('is-leaving', 'is-entering-down', 'is-entering-up', 'is-entering-active');
+      return {
+        id: layer.id,
+        label: layer.dataset.label || layer.id,
+        startY,
+        phase1EndY,
+        endY,
+        overflow,
+        dwell,
+        phase1Px,
+        phase2Px
+      };
     });
+
+    totalScroll = segments.length ? segments[segments.length - 1].endY : 0;
+    scrollTrack.style.height = `${totalScroll + vh}px`;
+    targetY = clamp(window.scrollY, 0, totalScroll);
+    smoothY = clamp(smoothY, 0, totalScroll);
   }
 
-  function transitionToSection(targetIndex, direction, align = 'top') {
-    if (!sections.length) return;
-    const clampedIndex = Math.max(0, Math.min(sections.length - 1, targetIndex));
-    if (isTransitioning) return;
+  function renderStage() {
+    if (!stageActive || !segments.length) return;
 
-    const fromIndex = getCurrentSectionIndex();
-    const fromSec = sections[fromIndex];
-    const toSec = sections[clampedIndex];
+    const y = clamp(smoothY, 0, totalScroll);
+    const smoothProgress = totalScroll > 0 ? clamp(y / totalScroll, 0, 1) : 0;
 
-    const bounds = getSectionBounds(toSec);
-    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    const rawTarget = align === 'bottom'
-      ? Math.max(bounds.top, bounds.bottom - window.innerHeight)
-      : bounds.top;
-    const targetY = Math.max(0, Math.min(rawTarget, maxScroll));
-    const startY = window.scrollY;
+    let segIndex = segments.length - 1;
+    for (let i = 0; i < segments.length; i += 1) {
+      if (y <= segments[i].endY || i === segments.length - 1) {
+        segIndex = i;
+        break;
+      }
+    }
 
-    if (Math.abs(targetY - startY) < 2) {
-      setActiveNav(toSec.id);
+    const seg = segments[segIndex];
+    const inPhase2 = y > seg.phase1EndY && segIndex < segments.length - 1 && seg.phase2Px > 0;
+
+    let activeIndex = segIndex;
+    let morphT = 0;
+    let morphRadius = 0;
+    let morphPulse = 0;
+
+    if (!inPhase2) {
+      const innerOffset = seg.overflow > 0 ? clamp(y - seg.startY, 0, seg.overflow) : 0;
+
+      stageLayers.forEach((layer, idx) => {
+        const inner = layerInners[idx];
+        if (idx === segIndex) {
+          layer.style.zIndex = '2';
+          layer.style.visibility = 'visible';
+          layer.style.pointerEvents = 'auto';
+          layer.style.opacity = '1';
+          layer.style.transform = 'scale(1)';
+          layer.style.clipPath = 'none';
+          if (inner) inner.style.transform = `translate3d(0, -${innerOffset.toFixed(2)}px, 0)`;
+        } else {
+          layer.style.zIndex = '0';
+          layer.style.visibility = 'hidden';
+          layer.style.pointerEvents = 'none';
+          layer.style.clipPath = 'none';
+        }
+      });
+    } else {
+      morphT = clamp((y - seg.phase1EndY) / seg.phase2Px, 0, 1);
+      const eased = morphT < 0.5
+        ? 2 * morphT * morphT
+        : 1 - Math.pow(-2 * morphT + 2, 2) / 2;
+      morphRadius = Number((eased * 150).toFixed(2));
+      morphPulse = Math.sin(morphT * Math.PI);
+      activeIndex = morphT >= 0.45 ? segIndex + 1 : segIndex;
+
+      stageLayers.forEach((layer, idx) => {
+        const inner = layerInners[idx];
+        if (idx === segIndex) {
+          layer.style.zIndex = '1';
+          layer.style.visibility = 'visible';
+          layer.style.pointerEvents = morphT < 0.5 ? 'auto' : 'none';
+          layer.style.opacity = (1 - 0.36 * eased).toFixed(3);
+          layer.style.transform = `scale(${(1 - 0.04 * eased).toFixed(4)})`;
+          layer.style.clipPath = 'none';
+          if (inner) inner.style.transform = `translate3d(0, -${seg.overflow.toFixed(2)}px, 0)`;
+        } else if (idx === segIndex + 1) {
+          layer.style.zIndex = '2';
+          layer.style.visibility = 'visible';
+          layer.style.pointerEvents = morphT >= 0.5 ? 'auto' : 'none';
+          layer.style.opacity = Math.min(1, 0.25 + eased * 1.4).toFixed(3);
+          layer.style.transform = `scale(${(1.03 - 0.03 * eased).toFixed(4)})`;
+          layer.style.clipPath = `circle(${morphRadius}% at 85% 50%)`;
+          if (inner) inner.style.transform = 'translate3d(0, 0, 0)';
+        } else {
+          layer.style.zIndex = '0';
+          layer.style.visibility = 'hidden';
+          layer.style.pointerEvents = 'none';
+          layer.style.clipPath = 'none';
+        }
+      });
+    }
+
+    const activeSeg = segments[activeIndex];
+    if (activeSeg) {
+      setActiveNav(activeSeg.id);
+      if (hudLabel) hudLabel.textContent = activeSeg.label;
+    }
+    if (hudFill) {
+      hudFill.style.transform = `scaleX(${smoothProgress.toFixed(4)})`;
+    }
+    if (stageDot) {
+      stageDot.style.top = `${(smoothProgress * 100).toFixed(3)}%`;
+      stageDot.style.transform = `translate(-50%, -50%) scale(${(1 + morphPulse * 0.85).toFixed(3)})`;
+    }
+    if (scrollTopBtn) {
+      scrollTopBtn.classList.toggle('is-visible', smoothProgress > 0.05);
+    }
+
+    debugState = {
+      stageActive: true,
+      smoothY: Math.round(y),
+      targetY: Math.round(targetY),
+      smoothProgress: Number(smoothProgress.toFixed(4)),
+      activeIndex,
+      activePhase: inPhase2 ? 2 : 1,
+      morphT: Number(morphT.toFixed(4)),
+      morphRadius,
+      totalScroll,
+      segments
+    };
+  }
+
+  function tick() {
+    if (!stageActive) {
+      rafId = 0;
       return;
     }
 
-    isTransitioning = true;
-    clearTimeout(unlockTimer);
-    clearTimeout(cleanupTimer);
-    if (rafId) cancelAnimationFrame(rafId);
-
-    root.classList.add('is-section-transitioning');
-    setActiveNav(toSec.id);
-    if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, '', `#${toSec.id}`);
+    const diff = targetY - smoothY;
+    if (Math.abs(diff) < 0.35) {
+      smoothY = targetY;
+    } else {
+      smoothY += diff * LERP;
     }
 
-    clearSectionAnimClasses();
-    if (fromSec && fromSec !== toSec) {
-      fromSec.classList.add('is-leaving');
-    }
-
-    const enterClass = direction === 'up' ? 'is-entering-up' : 'is-entering-down';
-    toSec.classList.add(enterClass);
-    void toSec.offsetHeight;
-    toSec.classList.remove(enterClass);
-    toSec.classList.add('is-entering-active');
-
-    const startTime = performance.now();
-
-    function step(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(1, elapsed / DURATION);
-      const eased = easeInOutCubic(progress);
-      window.scrollTo(0, startY + (targetY - startY) * eased);
-
-      if (progress < 1) {
-        rafId = requestAnimationFrame(step);
-        return;
-      }
-
-      rafId = 0;
-      window.scrollTo(0, targetY);
-      root.classList.remove('is-section-transitioning');
-      if (fromSec) fromSec.classList.remove('is-leaving');
-      updateScrollTopBtn();
-
-      cleanupTimer = setTimeout(() => {
-        toSec.classList.remove('is-entering-active');
-      }, 360);
-
-      unlockTimer = setTimeout(() => {
-        isTransitioning = false;
-        wheelAccum = 0;
-      }, LOCK_BUFFER);
-    }
-
-    rafId = requestAnimationFrame(step);
+    renderStage();
+    rafId = requestAnimationFrame(tick);
   }
 
-  /* ---------- Desktop Wheel Listener ---------- */
-  window.addEventListener(
-    'wheel',
-    (event) => {
-      if (!isDesktopControlled()) return;
+  function enableStageMode() {
+    if (stageActive) return;
+    stageActive = true;
+    root.classList.add('stage-active');
+    measureSegments();
+    targetY = clamp(window.scrollY, 0, totalScroll);
+    smoothY = targetY;
+    renderStage();
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
 
-      if (isTransitioning) {
-        event.preventDefault();
-        return;
+  function disableStageMode() {
+    if (!stageActive) return;
+    stageActive = false;
+    root.classList.remove('stage-active');
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+    scrollTrack.style.height = '';
+    stageLayers.forEach((layer, idx) => {
+      const inner = layerInners[idx];
+      layer.style.zIndex = '';
+      layer.style.visibility = '';
+      layer.style.pointerEvents = '';
+      layer.style.opacity = '';
+      layer.style.transform = '';
+      layer.style.clipPath = '';
+      if (inner) inner.style.transform = '';
+    });
+    debugState.stageActive = false;
+  }
+
+  function syncMode() {
+    if (isStageEligible()) {
+      enableStageMode();
+    } else {
+      disableStageMode();
+      updateFallbackUI();
+    }
+  }
+
+  function updateFallbackUI() {
+    if (stageActive) return;
+    if (scrollTopBtn) {
+      const heroH = stageLayers[0] ? stageLayers[0].offsetHeight : 600;
+      scrollTopBtn.classList.toggle('is-visible', window.scrollY > Math.min(340, heroH * 0.5));
+    }
+
+    const probeY = window.scrollY + Math.min(140, (window.innerHeight || 844) * 0.25);
+    let current = stageLayers[0];
+    for (let i = stageLayers.length - 1; i >= 0; i -= 1) {
+      const top = stageLayers[i].getBoundingClientRect().top + window.scrollY;
+      if (probeY >= top - 4) {
+        current = stageLayers[i];
+        break;
       }
+    }
+    if (current) setActiveNav(current.id);
+  }
 
-      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
-      if (event.deltaY === 0) return;
-
-      const idx = getCurrentSectionIndex();
-      const currentSec = sections[idx];
-      if (!currentSec) return;
-
-      const rect = currentSec.getBoundingClientRect();
-      const vh = window.innerHeight || 900;
-
-      if (event.deltaY > 0) {
-        if (idx >= sections.length - 1) return;
-        const atBottom = rect.bottom <= vh + EDGE_EPS;
-        if (!atBottom) {
-          wheelAccum = 0;
-          return;
-        }
-        event.preventDefault();
-        wheelAccum += event.deltaY;
-        clearTimeout(wheelResetTimer);
-        wheelResetTimer = setTimeout(() => { wheelAccum = 0; }, 140);
-        if (wheelAccum >= WHEEL_THRESHOLD) {
-          wheelAccum = 0;
-          transitionToSection(idx + 1, 'down', 'top');
-        }
+  /* ---------- Scroll & Resize Listeners ---------- */
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (stageActive) {
+        targetY = clamp(window.scrollY, 0, totalScroll);
       } else {
-        if (idx <= 0) return;
-        const atTop = rect.top >= -EDGE_EPS;
-        if (!atTop) {
-          wheelAccum = 0;
-          return;
-        }
-        event.preventDefault();
-        wheelAccum += Math.abs(event.deltaY);
-        clearTimeout(wheelResetTimer);
-        wheelResetTimer = setTimeout(() => { wheelAccum = 0; }, 140);
-        if (wheelAccum >= WHEEL_THRESHOLD) {
-          wheelAccum = 0;
-          transitionToSection(idx - 1, 'up', 'bottom');
-        }
+        updateFallbackUI();
       }
     },
-    { passive: false }
+    { passive: true }
   );
 
-  /* ---------- Internal Anchor Clicks & Back-to-Top ---------- */
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      syncMode();
+      if (stageActive) measureSegments();
+    }, 100);
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      if (stageActive) {
+        measureSegments();
+        renderStage();
+      }
+    });
+  }
+
+  window.addEventListener('load', () => {
+    if (stageActive) {
+      measureSegments();
+      renderStage();
+    }
+  });
+
+  document.querySelectorAll('details.project-details').forEach((det) => {
+    det.addEventListener('toggle', () => {
+      if (stageActive) {
+        measureSegments();
+        renderStage();
+      }
+    });
+  });
+
+  /* ---------- Sidebar, CTA & Back-to-Top Navigation ---------- */
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[href^="#"]');
     if (!link) return;
     const hash = link.getAttribute('href');
     if (!hash || hash.length < 2) return;
     const targetId = hash.slice(1);
-    const targetIdx = SECTION_IDS.indexOf(targetId);
+    const targetIdx = stageLayers.findIndex((layer) => layer.id === targetId);
     if (targetIdx === -1) return;
 
-    if (isDesktopControlled()) {
+    if (stageActive && segments[targetIdx]) {
       event.preventDefault();
-      if (isTransitioning) return;
-      const curIdx = getCurrentSectionIndex();
-      transitionToSection(targetIdx, targetIdx < curIdx ? 'up' : 'down', 'top');
+      window.scrollTo({ top: segments[targetIdx].startY, behavior: 'auto' });
+      targetY = segments[targetIdx].startY;
     } else {
       setActiveNav(targetId);
     }
@@ -258,9 +368,9 @@
 
   if (scrollTopBtn) {
     scrollTopBtn.addEventListener('click', () => {
-      if (isDesktopControlled()) {
-        if (isTransitioning) return;
-        transitionToSection(0, 'up', 'top');
+      if (stageActive) {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        targetY = 0;
       } else {
         window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
         setActiveNav('gioi-thieu');
@@ -268,54 +378,11 @@
     });
   }
 
-  /* ---------- Keyboard Navigation (PageDown / PageUp) ---------- */
-  document.addEventListener('keydown', (event) => {
-    if (!isDesktopControlled()) return;
-    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  /* ---------- Mobile Below-Fold Reveal ---------- */
+  syncMode();
 
-    const active = document.activeElement;
-    if (active) {
-      const tag = active.tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || active.isContentEditable) {
-        return;
-      }
-    }
-
-    if (event.key === 'PageDown') {
-      event.preventDefault();
-      if (isTransitioning) return;
-      const idx = getCurrentSectionIndex();
-      if (idx < sections.length - 1) transitionToSection(idx + 1, 'down', 'top');
-    } else if (event.key === 'PageUp') {
-      event.preventDefault();
-      if (isTransitioning) return;
-      const idx = getCurrentSectionIndex();
-      if (idx > 0) transitionToSection(idx - 1, 'up', 'top');
-    }
-  });
-
-  /* ---------- Passive Scroll Sync ---------- */
-  let scrollTicking = false;
-  window.addEventListener(
-    'scroll',
-    () => {
-      updateScrollTopBtn();
-      if (isTransitioning || scrollTicking) return;
-      scrollTicking = true;
-      requestAnimationFrame(() => {
-        scrollTicking = false;
-        const cur = sections[getCurrentSectionIndex()];
-        if (cur) setActiveNav(cur.id);
-      });
-    },
-    { passive: true }
-  );
-
-  updateScrollTopBtn();
-
-  /* ---------- Mobile Subtle Reveal ---------- */
-  if (!isDesktopControlled() && !reducedMotion && 'IntersectionObserver' in window) {
-    const mobileTargets = sections.filter((sec) => sec.getBoundingClientRect().top > window.innerHeight);
+  if (!stageActive && !reducedMotion && 'IntersectionObserver' in window) {
+    const mobileTargets = stageLayers.filter((sec) => sec.getBoundingClientRect().top > window.innerHeight);
     mobileTargets.forEach((sec) => sec.classList.add('mobile-reveal'));
     if (mobileTargets.length) {
       const mobObs = new IntersectionObserver(
@@ -332,12 +399,10 @@
     }
   }
 
-  window.__khanhScroll = {
+  window.__khanhStage = {
     getState: () => ({
-      isTransitioning,
-      currentIndex: getCurrentSectionIndex(),
-      sections: sections.map((s) => s.id),
-      scrollY: window.scrollY
+      ...debugState,
+      scrollY: Math.round(window.scrollY)
     })
   };
 })();
