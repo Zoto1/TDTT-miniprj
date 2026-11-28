@@ -549,38 +549,36 @@ html.stage-active .stage-rail {
   );
 }
 
-.hero-scroll-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  background-color: #ffffff;
-  color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 10px 10px 10px 22px;
-  font-size: 0.94rem;
-  font-weight: 500;
-  box-shadow: 0 8px 24px rgba(20, 20, 92, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease, color 180ms ease;
-}
-
-.hero-scroll-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(20, 20, 92, 0.14);
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.hero-scroll-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 6px;
-  background-color: var(--primary);
-  color: #ffffff;
+.hero-scroll-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  color: var(--primary);
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.hero-scroll-arrow:hover,
+.hero-scroll-arrow:focus-visible {
+  color: var(--primary-mid);
+  background-color: rgba(77, 85, 184, 0.08);
+  text-decoration: none;
+}
+
+.hero-scroll-arrow svg {
+  animation: arrowBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
 }
 
 @keyframes enterUp {
@@ -596,7 +594,7 @@ html.stage-active .stage-rail {
 
 .code-lines,
 .hero-tagline,
-.hero-scroll-btn {
+.hero-scroll-arrow {
   animation: enterUp 500ms ease both;
 }
 
@@ -604,7 +602,7 @@ html.stage-active .stage-rail {
   animation-delay: 80ms;
 }
 
-.hero-scroll-btn {
+.hero-scroll-arrow {
   animation-delay: 140ms;
 }
 
